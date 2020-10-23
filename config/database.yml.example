@@ -1,0 +1,19 @@
+default: &default
+  adapter: mysql2
+  encoding: utf8
+  username:
+  password:
+  host: 127.0.0.1
+  port: 3306
+
+development:
+  <<: *default
+  database: development_e_learning
+
+test:
+  <<: *default
+  database: test_e_learning
+
+production:
+  <<: *default
+  database: production_e_learning
