@@ -1,4 +1,27 @@
-en:
+vi:
   hello: "Hello world"
+  locales:
+    english: "Anh"
+    vietnamese: "Việt"
   common:
     title: "Hệ thống học online"
+    sign_in: "Đăng nhập"
+    slogan: "Học cho một tương lai tốt hơn"
+    sign_up: "Đăng kí"
+    email_placeholder: "Vui lòng nhập email"
+    courses: "Khóa học"
+    course_welcome: "Thăng tiến trong sự nghiệp với khóa học của chúng tôi"
+    about: "Về chúng tôi"
+    contact: "Liên hệ"
+    term_of_use: "Điều khoản"
+    privacy: "Chính sách bảo mật"
+  user:
+    comments: "Bình luận"
+    comments_welcome: "Học viên cũ nói gì về khóa học của họ"
+  footer:
+    right: "&copy; E-learing 2020. All Rights Reserved."
+  sample:
+    course_name: "Khóa học 1"
+    comment: "Bình luận 1"
+  message:
+    sign_up_now: "Bạn chưa có tài khoản? Đăng kí ngay !"

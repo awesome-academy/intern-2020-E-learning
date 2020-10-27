@@ -1,0 +1,30 @@
+<nav class="navbar navbar-light bg-light static-top">
+  <div class="container">
+    <%= link_to t("common.title"), "#", {class: "navbar-brand"} %>
+    <div>
+      <%= link_to t("common.sign_in"), "#" , {class:"btn btn-primary"} %>
+      <%= link_to t("locales.english"), locale:"en" %>
+      <%= link_to t("locales.vietnamese"), locale:"vi" %>
+    </div>
+  </div>
+</nav>
+<header class="masthead text-white text-center">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-9 mx-auto">
+          <h1 class="mb-5"><%= t "common.slogan" %></h1>
+        </div>
+        <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
+          <form>
+            <div class="form-row">
+              <h2><%= t "message.sign_up_now" %></h2>
+              <div class="col-12 col-md-3">
+                <button type="submit" class="btn btn-block btn-lg btn-primary"><%= t "common.sign_up" %></button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </header>
