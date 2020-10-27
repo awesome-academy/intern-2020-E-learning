@@ -47,3 +47,8 @@ yarn-debug.log*
 
 /test/*
 /app/assets/images/*
+
+config/settings.local.yml
+config/settings/*.local.yml
+config/environments/*.local.yml
+node_modules
