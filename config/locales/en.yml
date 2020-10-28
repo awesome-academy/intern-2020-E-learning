@@ -1,4 +1,24 @@
 en:
   hello: "Hello world"
+  locales:
+    english: "English"
+    vietnamese: "Vietnamese"
   common:
     title: "E-Learning System"
+    sign_in: "Sign in"
+    slogan: "Learn for a better future"
+    sign_up: "Sign up"
+    email_placeholder: "Please enter your email"
+    courses: "Courses"
+    course_welcome: "Advance your carier with our courses"
+    about: "About"
+    contact: "Contact"
+    term_of_use: "Term of use"
+    privacy: "Privacy Policy"
+  user:
+    comments: "Comment"
+    comments_welcome: "What did student say about their courses"
+  footer:
+    right: "&copy; E-learing 2020. All Rights Reserved."
+  message:
+    sign_up_now: "Do you have an account? Sign up now !"
