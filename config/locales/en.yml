@@ -19,6 +19,11 @@ en:
     comments: "Comment"
     comments_welcome: "What did student say about their courses"
   footer:
-    right: "&copy; E-learing 2020. All Rights Reserved."
+    right: "E-learing 2020. All Rights Reserved."
+  button:
+    create_account: "Create Account"
   message:
     sign_up_now: "Do you have an account? Sign up now !"
+    user:
+      create_success: "Create user successfully"
+      create_fail: "Can't create user"

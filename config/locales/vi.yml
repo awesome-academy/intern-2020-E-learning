@@ -24,4 +24,11 @@ vi:
     course_name: "Khóa học 1"
     comment: "Bình luận 1"
   message:
+    right: "E-learing 2020. All Rights Reserved."
+  button:
+    create_account: "Tạo tài khoản"
+  message:
     sign_up_now: "Bạn chưa có tài khoản? Đăng kí ngay !"
+    user:
+      create_success: "Tạo người dùng thành công"
+      create_fail: "Không thể tạo người dùng"

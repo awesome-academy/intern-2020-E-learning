@@ -11,6 +11,8 @@ gem "turbolinks", "~> 5"
 gem "jbuilder", "~> 2.7"
 gem "mysql2", "~> 0.4.10"
 gem "rails-i18n"
+gem "bcrypt"
+gem "config"
 gem "bootsnap", ">= 1.4.2", require: false
 
 group :development, :test do
