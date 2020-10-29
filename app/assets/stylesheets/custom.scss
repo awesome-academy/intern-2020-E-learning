@@ -1,0 +1,18 @@
+@import './colors.scss';
+.center {
+  margin: 0 auto;
+}
+
+.inline-item{
+  display: inline-block;
+}
+
+input {
+  margin-bottom: 5px;
+}
+
+tbody {
+  :hover {
+    background-color: $gray-400;
+  }
+}

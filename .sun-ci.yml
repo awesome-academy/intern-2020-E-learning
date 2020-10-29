@@ -7,7 +7,7 @@ stages:
 jobs:
 - name: build:prepare
   stage: build
-  image: sunci/ruby:2.5.1
+  image: sunci/ruby:2.5.0
   script:
   - cp database-ci.yml config/database.yml
   - bundle _2.1.2_ install --path vendor/bundle
@@ -18,7 +18,7 @@ jobs:
 
 - name: test:rspec
   stage: test
-  image: sunci/ruby:2.5.1
+  image: sunci/ruby:2.5.0
   services:
   - image: mysql:5.7.31
     name: mysql_test
@@ -34,7 +34,7 @@ jobs:
 
 - name: test:rubocop
   stage: test
-  image: sunci/ruby:2.5.1
+  image: sunci/ruby:2.5.0
   before_script:
   - bundle _2.1.2_ install --path vendor/bundle
   script:

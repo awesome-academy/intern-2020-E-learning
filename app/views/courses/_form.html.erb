@@ -1,16 +1,24 @@
 <%= form_for @course do |f| %>
-  <%= f.label :name, t("course.name") %>
-  <%= f.text_field :name, class: "form-control" %>
+  <div class="form-group">
+    <%= f.label :name, t("course.name") %>
+    <%= f.text_field :name, class: "form-control" %>
+  </div>
 
-  <%= f.label :status, t("course.status") %>
-  <%= f.collection_select :status, Course.statuses.keys, :to_s, :to_s %>
-  <br>
+  <div class="form-group">
+    <%= f.label :status, t("course.status") %>
+    <%= f.collection_select :status, Course.statuses.keys, :to_s, :to_s %>
+  </div>
 
-  <%= f.label :description, t("course.description") %>
-  <%= f.text_area :description, class: "form-control" %>
+  <div class="form-group">
+    <%= f.label :description, t("course.description") %>
+    <%= f.text_area :description, class: "form-control" %>
+  </div>
 
-  <%= f.label :estimate_time, t("course.estimate_time") %>
-  <%= f.date_field :estimate_time, class: "form-control" %>
+  <div class="form-group">
+    <%= f.label :estimate_time, t("course.estimate_time") %>
+    <%= f.date_field :estimate_time, class: "form-control" %>
+  </div>
 
   <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+  <%= link_to t("common.cancel"), courses_path, {class: "btn btn-light"} %>
 <% end %>

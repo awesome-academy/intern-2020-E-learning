@@ -1,12 +1,18 @@
 <%= form_for @user do |f| %>
-  <%= f.label :email, t("user.email") %>
-  <%= f.email_field :email, class: "form-control" %>
+  <div class="form-group">
+    <%= f.label :email, t("user.email") %>
+    <%= f.email_field :email, class: "form-control" %>
+  </div>
 
-  <%= f.label :password, t("user.password") %>
-  <%= f.password_field :password, class: "form-control" %>
+  <div class="form-group">
+    <%= f.label :password, t("user.password") %>
+    <%= f.password_field :password, class: "form-control" %>
+  </div>
 
-  <%= f.label :password_confirmation, t("user.confirm_password") %>
-  <%= f.password_field :password_confirmation, class: "form-control" %>
+  <div class="form-group">
+    <%= f.label :password_confirmation, t("user.confirm_password") %>
+    <%= f.password_field :password_confirmation, class: "form-control" %>
+  </div>
 
   <%= f.submit yield(:button_text), class: "btn btn-primary" %>
 <% end %>
