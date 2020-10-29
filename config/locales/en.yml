@@ -18,10 +18,19 @@ en:
   user:
     comments: "Comment"
     comments_welcome: "What did student say about their courses"
+  course:
+    add: "Add Course"
+    name: "Name"
+    status: "Status"
+    description: "Description"
+    estimate_time: "Estimate time"
+    new: "New course"
+    num_order: "No"
   footer:
     right: "E-learing 2020. All Rights Reserved."
   button:
     create_account: "Create Account"
+    add: "Add"
   message:
     sign_up_now: "Do you have an account? Sign up now !"
     user:
