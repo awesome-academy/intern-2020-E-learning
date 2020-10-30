@@ -11,5 +11,7 @@ class Course < ApplicationRecord
   has_many :courses, through: :user_courses, dependent: :destroy
   has_many :categories, through: :course_categories, dependent: :destroy
 
+  validates :status, inclusion: {in: statuses.keys}
+
   scope :order_by_created_at, ->{order created_at: :desc}
 end

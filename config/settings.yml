@@ -2,5 +2,8 @@ email:
   max_length: 150
 password:
   min_length: 6
+name:
+  max_length: 50
+  min_length: 2
 language_image: "https://res.cloudinary.com/tdh/image/upload/v1595343877/images/language_uyra3n.png"
 per: 5

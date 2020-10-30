@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_26_074527) do
+ActiveRecord::Schema.define(version: 2020_11_09_030030) do
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(version: 2020_10_26_074527) do
     t.string "code"
     t.string "name"
     t.text "description"
-    t.integer "status"
+    t.integer "status", default: 0
     t.date "estimate_time"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -80,7 +80,7 @@ ActiveRecord::Schema.define(version: 2020_10_26_074527) do
     t.string "location"
     t.string "avatar"
     t.string "workplace"
-    t.integer "status"
+    t.integer "status", default: 1
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -91,7 +91,7 @@ ActiveRecord::Schema.define(version: 2020_10_26_074527) do
     t.string "code"
     t.string "email"
     t.string "password_digest"
-    t.integer "role_id"
+    t.integer "role", default: 1
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
