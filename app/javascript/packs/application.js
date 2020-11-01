@@ -1,11 +1,10 @@
 const jquery = require('jquery')
 
+require('./course')
 require('@rails/ujs').start()
 require('@rails/activestorage').start()
 require('channels')
 require('@fortawesome/fontawesome-free/js/all')
-require('./custom')
-require('./course')
 require('bootstrap/dist/js/bootstrap')
 require('jquery')
 require('jquery-ui')
