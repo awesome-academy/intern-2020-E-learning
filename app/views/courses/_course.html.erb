@@ -11,7 +11,10 @@
       <% end %>
     </div>
     <div class="inline-item">
-      <%= button_to course, {method: :delete, class: "btn btn-danger"} do %>
+      <%= link_to course_path(course.id, page: params[:page], course_delete: true),
+                  method: :delete,
+                  data: {confirm: t("message.confirm_delete")},
+                  class: "btn btn-danger" do %>
         <i class="fas fa-trash"></i>
       <% end %>
     </div>

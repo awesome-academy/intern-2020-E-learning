@@ -15,6 +15,7 @@ gem "bcrypt"
 gem "config"
 gem "kaminari"
 gem "bootstrap-kaminari-views"
+gem "cocoon"
 gem "bootsnap", ">= 1.4.2", require: false
 
 group :development, :test do

@@ -4,6 +4,14 @@
   margin: 0 auto;
 }
 
+.right {
+  text-align: right;
+}
+
+.hide {
+  display: none;
+}
+
 .inline-item{
   display: inline-block;
 }
@@ -22,4 +30,8 @@ tbody {
 
 .locale-logo {
   width: 25px;
+}
+
+.new-record {
+  background-color: chartreuse;
 }
