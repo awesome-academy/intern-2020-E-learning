@@ -5,4 +5,5 @@ class CourseLecture < ApplicationRecord
   belongs_to :course
 
   scope :order_by_number, ->{order number: :asc}
+  scope :get_lecture_by_course, ->(course_id){where course_id: course_id}
 end

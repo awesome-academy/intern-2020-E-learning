@@ -19,8 +19,9 @@
     <%= f.label :estimate_time, t("field.estimate_time") %>
     <%= f.date_field :estimate_time, class: "form-control" %>
   </div>
+
   <h4><%= t "common.lecture" %></h4>
-  <%= f.fields_for :course_lectures do |builder| %>
+  <%= f.fields_for :course_lecture do |builder| %>
     <%= render "course_lecture_fields", f: builder %>
   <% end %>
 

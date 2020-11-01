@@ -1,5 +1,6 @@
 class CoursesController < ApplicationController
-  before_action :get_course, only: %i(edit update destroy)
+  before_action :get_course, only: %i(edit update)
+  before_action :store_previous_page, only: %i(new edit)
 
   def index
     @courses = Course.order_by_created_at.page(params[:page]).per Settings.per
@@ -23,7 +24,7 @@ class CoursesController < ApplicationController
   def update
     if @course.update course_params
       flash[:success] = t "message.course.update_success"
-      redirect_to courses_path
+      redirect_to session.delete(:back_path) || request.referer
     else
       flash.now[:danger] = t "message.course.update_fail"
       render :edit
@@ -32,22 +33,18 @@ class CoursesController < ApplicationController
 
   def edit
     @lectures = @course.course_lecture.order_by_number
-    @users = @course.users.page(params[:page]).per Settings.per
-  end
-
-  def destroy
-    @course.status = Course.statuses[:expired]
-    if @course.save
-      flash[:info] = t "message.course.create_success"
-      redirect_to courses_path(page: params[:page])
-    else
-      flash.now[:danger] = t "message.course.create_fail"
-    end
+    @users = @course.users
+                    .joins(:user_detail)
+                    .page(params[:page]).per Settings.per
   end
 
   private
 
   def course_params
+    if params[:status].present?
+      params[:course] = {}
+      params[:course].merge! status: params[:status]
+    end
     params.require(:course).permit Course::COURSE_PARAMS
   end
 
@@ -57,5 +54,9 @@ class CoursesController < ApplicationController
 
     flash[:danger] = t "message.course.not_found"
     redirect_to courses_path
+  end
+
+  def store_previous_page
+    session[:back_path] = request.referer
   end
 end
