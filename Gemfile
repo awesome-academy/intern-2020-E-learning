@@ -13,6 +13,8 @@ gem "mysql2", "~> 0.4.10"
 gem "rails-i18n"
 gem "bcrypt"
 gem "config"
+gem "kaminari"
+gem "bootstrap-kaminari-views"
 gem "bootsnap", ">= 1.4.2", require: false
 
 group :development, :test do

@@ -1,0 +1,27 @@
+<% provide :title, t("common.courses") %>
+
+<div class="container">
+  <h2><%= t "common.courses" %></h2>
+  <div>
+    <%= link_to t("course.new"), new_course_path, {class: "btn btn-primary"} %>
+  </div>
+  <div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col"><%= t "course.num_order" %></th>
+          <th scope="col"><%= t "course.name" %></th>
+          <th scope="col"><%= t "course.description" %></th>
+          <th scope="col"><%= t "course.status" %></th>
+          <th scope="col"><%= t "course.estimate_time" %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= render @courses %>
+      </tbody>
+    </table>
+    <div class="paginator">
+      <%= paginate @courses, theme: "twitter-bootstrap-3" %>
+    </div>
+  </div>
+</div>

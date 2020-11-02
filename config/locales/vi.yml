@@ -18,8 +18,16 @@ vi:
   user:
     comments: "Bình luận"
     comments_welcome: "Học viên cũ nói gì về khóa học của họ"
+  course:
+    add: "Thêm khóa học"
+    name: "Tên"
+    status: "Trạng thái"
+    description: "Mô tả"
+    estimate_time: "Thời gian"
+    new: "Tạo khóa học"
+    num_order: "Stt"
   footer:
-    right: "&copy; E-learing 2020. All Rights Reserved."
+    right: "E-learing 2020. All Rights Reserved."
   sample:
     course_name: "Khóa học 1"
     comment: "Bình luận 1"
@@ -27,6 +35,7 @@ vi:
     right: "E-learing 2020. All Rights Reserved."
   button:
     create_account: "Tạo tài khoản"
+    add: "Thêm"
   message:
     sign_up_now: "Bạn chưa có tài khoản? Đăng kí ngay !"
     user:
