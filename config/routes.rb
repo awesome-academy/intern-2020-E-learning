@@ -7,8 +7,18 @@ Rails.application.routes.draw do
     post "/login", to: "sessions#create"
     delete "/logout", to: "sessions#destroy", as: "logout"
     patch "/courses/:id", to: "courses#update", as: "update_course"
+    get "/course/list", to: "user_courses#home", as: "user_course_list"
+    post "/enroll", to: "user_courses#create", as: "enroll"
+    get "course-lecture/next/:course_id/:number",
+        to: "course_lectures#next_lecture",
+        as: "next_lecture"
+    get "course-lecture/previous/:course_id/:number",
+        to: "course_lectures#previous_lecture",
+        as: "previous_lecture"
 
     resources :users
     resources :courses
+    resources :user_courses
+    resources :course_lectures
   end
 end

@@ -1,6 +1,7 @@
 class CoursesController < ApplicationController
   before_action :get_course, only: %i(edit update)
   before_action :store_previous_page, only: %i(new edit)
+  include SessionsHelper
 
   def index
     @courses = Course.order_by_created_at.page(params[:page]).per Settings.per
@@ -36,6 +37,24 @@ class CoursesController < ApplicationController
     @users = @course.users
                     .joins(:user_detail)
                     .page(params[:page]).per Settings.per
+  end
+
+  def destroy
+    @course.status = Course.statuses[:expired]
+    if @course.save
+      flash[:info] = t "message.course.create_success"
+      redirect_to courses_path(page: params[:page])
+    else
+      flash.now[:danger] = t "message.course.create_fail"
+    end
+  end
+
+  def show
+    return unless current_user\
+      && current_user.user_courses.pluck(:course_id).include?(params[:id].to_i)
+
+    flash[:success] = t "message.course.welcome_back"
+    redirect_to course_lectures_path(course_id: params[:id])
   end
 
   private
