@@ -15,29 +15,38 @@ vi:
     contact: "Liên hệ"
     term_of_use: "Điều khoản"
     privacy: "Chính sách bảo mật"
+    cancel: "Hủy"
   user:
     comments: "Bình luận"
     comments_welcome: "Học viên cũ nói gì về khóa học của họ"
   course:
+    num_order: "Stt"
     add: "Thêm khóa học"
     name: "Tên"
     status: "Trạng thái"
     description: "Mô tả"
     estimate_time: "Thời gian"
     new: "Tạo khóa học"
-    num_order: "Stt"
+    edit: "Sửa khóa học"
   footer:
-    right: "E-learing 2020. All Rights Reserved."
-  sample:
-    course_name: "Khóa học 1"
-    comment: "Bình luận 1"
-  message:
     right: "E-learing 2020. All Rights Reserved."
   button:
     create_account: "Tạo tài khoản"
     add: "Thêm"
+    save: "Lưu"
   message:
     sign_up_now: "Bạn chưa có tài khoản? Đăng kí ngay !"
     user:
       create_success: "Tạo người dùng thành công"
       create_fail: "Không thể tạo người dùng"
+      update_success: "Cập nhật người dùng thành công"
+      update_fail: "Không thể cập nhật người dùng"
+      destroy_success: "Xóa người dùng thành công"
+      destroy_fail: "Không thể xóa người dùng"
+    course:
+      create_success: "Tạo người dùng thành công"
+      create_fail: "Không thể tạo người dùng"
+      update_success: "Cập nhật người dùng thành công"
+      update_fail: "Không thể cập nhật người dùng"
+      destroy_success: "Xóa người dùng thành công"
+      destroy_fail: "Không thể xóa người dùng"
