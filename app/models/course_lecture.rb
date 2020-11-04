@@ -5,4 +5,10 @@ class CourseLecture < ApplicationRecord
   belongs_to :course
 
   scope :order_by_number, ->{order number: :asc}
+  scope :get_next_number, (lambda do |current_num|
+    where "number > ?", current_num if current_num.present?
+  end)
+  scope :get_previous_number, (lambda do |current_num|
+    where "number < ?", current_num if current_num.present?
+  end)
 end
