@@ -12,6 +12,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new user_params
     if @user.save
+      log_in @user
       flash[:info] = t "message.user.create_success"
       redirect_to root_url
     else
