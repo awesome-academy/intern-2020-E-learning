@@ -1,4 +1,5 @@
 @import './colors.scss';
+
 .center {
   margin: 0 auto;
 }
@@ -7,12 +8,14 @@
   display: inline-block;
 }
 
-input {
-  margin-bottom: 5px;
-}
-
 tbody {
   :hover {
     background-color: $gray-400;
+  }
+}
+
+.form-button {
+  button {
+    margin-right: 15px;
   }
 }

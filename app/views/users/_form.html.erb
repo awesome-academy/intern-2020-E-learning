@@ -1,18 +1,30 @@
 <%= form_for @user do |f| %>
   <div class="form-group">
-    <%= f.label :email, t("user.email") %>
+    <%= f.label :email, t("field.email") %>
     <%= f.email_field :email, class: "form-control" %>
   </div>
 
   <div class="form-group">
-    <%= f.label :password, t("user.password") %>
+    <%= f.label :password, t("field.password") %>
     <%= f.password_field :password, class: "form-control" %>
   </div>
 
   <div class="form-group">
-    <%= f.label :password_confirmation, t("user.confirm_password") %>
+    <%= f.label :password_confirmation, t("field.confirm_password") %>
     <%= f.password_field :password_confirmation, class: "form-control" %>
   </div>
 
-  <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+  <%= f.fields_for :user_detail do |form| %>
+    <%= render "user_detail_form", f: form %>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :role, t("user.role") %>
+    <%= f.collection_select :role, User.roles.keys, :to_s, :to_s %>
+  </div>
+
+  <div class="form-button">
+    <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+    <%= link_to t("common.cancel"), users_path, {class: "btn btn-light"} %>
+  </div>
 <% end %>

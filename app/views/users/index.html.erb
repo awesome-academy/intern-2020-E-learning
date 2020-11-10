@@ -1,0 +1,22 @@
+<% provide :title, t("common.users") %>
+
+<div class="container">
+  <h2><%= t "common.users" %></h2>
+  <div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col"><%= t "user.no" %></th>
+          <th scope="col"><%= t "field.code" %></th>
+          <th scope="col"><%= t "field.email" %></th>
+          <th scope="col"><%= t "field.role" %></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= render @users %>
+      </tbody>
+    </table>
+    <%= paginate @users, theme: "twitter-bootstrap-3" %>
+  </div>
+</div>
