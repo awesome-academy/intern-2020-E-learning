@@ -3,17 +3,50 @@
     <span><%= link_to t("common.title"), root_path, {class: "nav-link"} %></span>
     <div class="collapse navbar-collapse" id="ftco-nav">
       <ul class="navbar-nav ml-auto">
-        <li class="nav-item cta">
-          <%= link_to t("common.sign_in"), "#" , {class:"nav-link ml-lg-2"} %>
+        <% if logged_in? %>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <%= t("common.account") %> <b class="caret"></b>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <%= link_to t("common.profile"), "#", class: "dropdown-item" %>
+              <%= link_to t("common.settings"), edit_user_path(current_user.id), class: "dropdown-item" %>
+              <div class="dropdown-divider"></div>
+              <%= link_to t("common.logout"), logout_path, method: :delete, class: "dropdown-item" %>
+            </div>
+          </li>
+        <% else %>
+          <li class="nav-item cta">
+            <%= link_to t("common.sign_in"), login_path , {class:"nav-link ml-lg-2"} %>
+          </li>
+          <li class="nav-item cta">
+            <%= link_to t("common.sign_up"), signup_path , {class:"nav-link ml-lg-2"} %>
+          </li>
+        <% end %>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true">
+            <%= t "common.language" %> <b class="caret"></b>
+            <span>
+              <%= image_tag "flag_uk.png", class: "locale-logo" if locale == :en %>
+              <%= image_tag "flag_vn.png", class: "locale-logo" if locale == :vi %>
+            </span>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <%= link_to class: "dropdown-item", locale: :en do %>
+              <div>
+                <%= image_tag "flag_uk.png", class: "locale-logo" %>
+                <%=  t "locales.english" %>
+              </div>
+            <% end %>
+            <%= link_to class: "dropdown-item", locale: :vi do %>
+              <div>
+                <%= image_tag "flag_vn.png", class: "locale-logo" %>
+                <%=  t "locales.vietnamese" %>
+              </div>
+            <% end %>
+          </div>
         </li>
-        <li class="nav-item cta">
-          <%= link_to t("common.sign_up"), signup_path , {class:"nav-link ml-lg-2"} %>
-        </li>
-        <li class="nav-item cta">
-          <%= image_tag(Settings.language_image, class: "") %>
-        </li>
-        <li class="nav-item cta"><%= link_to t("locales.vietnamese"), locale: :vi %></li>
-        <li class="nav-item cta"><%= link_to t("locales.english"), locale: :en %></li>
       </ul>
     </div>
   </div>
