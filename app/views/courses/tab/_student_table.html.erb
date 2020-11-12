@@ -1,0 +1,18 @@
+<div>
+  <table class="table">
+    <thead>
+    <tr>
+      <th scope="col"><%= t "field.num_order" %></th>
+      <th scope="col"><%= t "field.code" %></th>
+      <th scope="col"><%= t "field.name" %></th>
+      <th scope="col"><%= t "field.email" %></th>
+      <th scope="col"><%= t "field.birthday" %></th>
+      <th scope="col"><%= t "field.location" %></th>
+      <th scope="col"></th>
+    </tr>
+    </thead>
+    <tbody>
+      <%= render collection: @users, partial: "courses/tab/user" %>
+    </tbody>
+  </table>
+</div>

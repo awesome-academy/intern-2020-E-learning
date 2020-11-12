@@ -30,16 +30,18 @@ class CoursesController < ApplicationController
     end
   end
 
-  def edit; end
+  def edit
+    @lectures = @course.course_lecture.order_by_number
+    @users = @course.users.page(params[:page]).per Settings.per
+  end
 
   def destroy
-    @course.status = 0
+    @course.status = Course.statuses[:expired]
     if @course.save
       flash[:info] = t "message.course.create_success"
-      redirect_to courses_path
+      redirect_to courses_path(page: params[:page])
     else
       flash.now[:danger] = t "message.course.create_fail"
-      render :new
     end
   end
 

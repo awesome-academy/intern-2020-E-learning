@@ -22,6 +22,7 @@ vi:
     account: "Tài khoản"
     profile: "Thông tin"
     settings: "Cài đặt"
+    lecture: "Bài học"
   user:
     comments: "Bình luận"
     comments_welcome: "Học viên cũ nói gì về khóa học của họ"
@@ -37,6 +38,8 @@ vi:
     estimate_time: "Thời gian"
     new: "Tạo khóa học"
     edit: "Sửa khóa học"
+    lecture:
+      add: "Thêm bài học"
   footer:
     right: "E-learing 2020. All Rights Reserved."
   button:
@@ -45,13 +48,34 @@ vi:
     save: "Lưu"
   message:
     sign_up_now: "Bạn chưa có tài khoản? Đăng kí ngay !"
-    confirm_delete: "Bạn thật sự muốn xóa?"
+    confirm_delete: "Bạn có chắc muốn xóa bản ghi?"
     user:
       create_success: "Tạo người dùng thành công"
       create_fail: "Không thể tạo người dùng"
-      create_user_details_fail: "Không thể tạo thông tin chi tiết người dùng"
-      update_user_details_fail: "Không thể cập nhật thông tin chi tiết người dùng"
+      update_success: "Cập nhật người dùng thành công"
+      update_fail: "Không thể cập nhật người dùng"
+      destroy_success: "Xóa người dùng thành công"
+      destroy_fail: "Không thể xóa người dùng"
+      not_found: "Không tìm thấy người dùng"
+    course:
+      create_success: "Tạo khóa học thành công"
+      create_fail: "Không thể tạo khóa học"
+      update_success: "Cập nhật khóa học thành công"
+      update_fail: "Không thể cập nhật khóa học"
+      destroy_success: "Xóa khóa học thành công"
+      destroy_fail: "Không thể xóa khóa học"
+      not_found: "Không tìm thấy khóa học"
+    lecture:
+      create_success: "Tạo bài học thành công"
+      create_fail: "Không thể tạo bài học"
+      update_success: "Cập nhật bài học thành công"
+      update_fail: "Không thể cập nhật bài học"
+      destroy_success: "Xóa bài học thành công"
+      destroy_fail: "Không thể xóa bài học"
+      not_found: "Không tìm thấy bài học"
   field:
+    number: "Số"
+    video_link: "Link video"
     num_order: "Stt"
     name: "Tên"
     password: "Mật khẩu"

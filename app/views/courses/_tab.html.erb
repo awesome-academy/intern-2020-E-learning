@@ -1,0 +1,21 @@
+<div class="container">
+  <ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active" id="lecture-tab" data-toggle="tab" href="#lectures" role="tab" aria-controls="lectures" aria-selected="true">Lectures</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="student-tab" data-toggle="tab" href="#student" role="tab" aria-controls="student" aria-selected="false">Student</a>
+    </li>
+  </ul>
+
+  <div class="tab-content">
+    <div class="tab-pane active" id="lectures" role="tabpanel" aria-labelledby="home-tab">
+      <div id="lectures">
+        <%= render "courses/tab/lecture_table" %>
+      </div>
+    </div>
+    <div class="tab-pane" id="student" role="tabpanel" aria-labelledby="student-tab">
+      <%= render "courses/tab/student_table" %>
+    </div>
+  </div>
+</div>

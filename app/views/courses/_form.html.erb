@@ -19,7 +19,24 @@
     <%= f.label :estimate_time, t("field.estimate_time") %>
     <%= f.date_field :estimate_time, class: "form-control" %>
   </div>
+  <h4><%= t "common.lecture" %></h4>
+  <%= f.fields_for :course_lectures do |builder| %>
+    <%= render "course_lecture_fields", f: builder %>
+  <% end %>
 
-  <%= f.submit yield(:button_text), class: "btn btn-primary" %>
-  <%= link_to t("common.cancel"), courses_path, {class: "btn btn-light"} %>
+  <div class="links">
+    <%= link_to_add_association t("course.lecture.add"), f,
+                                :course_lecture,
+                                {id: "sub-field", class: "btn btn-primary"} %>
+  </div>
+
+  <div class="right">
+    <%= f.submit yield(:button_text), class: "btn btn-primary btn-right" %>
+    <%= link_to t("common.cancel"),
+      courses_path,
+      {class: "btn btn-light btn-right"} %>
+  </div>
 <% end %>
+<div>
+  <%= render "tab" %>
+</div>
