@@ -26,12 +26,14 @@ vi:
     list_lecture: "Các bài học"
     enroll_course: "Tham gia"
     start: "Bắt đầu"
+    admin: "Quản trị viên"
   user:
     comments: "Bình luận"
     comments_welcome: "Học viên cũ nói gì về khóa học của họ"
     role: "Role"
     edit: "Sửa người dùng"
     new_user: "Người dùng mới?"
+    require_permission: "Bạn không có quyền thực hiện hành động này"
   course:
     num_order: "Stt"
     add: "Thêm khóa học"

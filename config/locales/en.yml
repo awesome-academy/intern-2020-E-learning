@@ -27,12 +27,14 @@ en:
     list_lecture: "Lectures"
     enroll_course: "Enroll Course"
     start: "Start"
+    admin: "Admin"
   user:
     comments: "Comment"
     comments_welcome: "What did student say about their courses"
     role: "Role"
     edit: "Edit user"
     new_user: "New user?"
+    require_permission: "You don't have permission to do this action"
   course:
     num_order: "No"
     add: "Add Course"

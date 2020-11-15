@@ -1,5 +1,9 @@
 class UsersController < ApplicationController
+  include Authorization
+
   before_action :get_user, only: %i(edit update)
+  before_action :require_admin, only: %i(index)
+  before_action :correct_user, only: %i(edit update)
 
   def index
     @users = User.page(params[:page]).per Settings.per
@@ -28,7 +32,12 @@ class UsersController < ApplicationController
   def update
     if @user.update user_params
       flash[:success] = t "message.user.update_success"
-      redirect_to users_url
+      if current_user?(@user)
+        redirect_to root_url
+      else
+        redirect_to users_url
+      end
+
     else
       flash.now[:danger] = t "message.user.update_fail"
       render :edit
@@ -47,5 +56,12 @@ class UsersController < ApplicationController
 
     flash.now[:danger] = t "message.user.not_found"
     redirect_to users_url
+  end
+
+  def correct_user
+    return if current_user?(@user) || current_user.admin?
+
+    flash[:warning] = t "user.require_permission"
+    redirect_to root_url
   end
 end

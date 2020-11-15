@@ -1,7 +1,10 @@
 class CoursesController < ApplicationController
+  include SessionsHelper
+  include Authorization
+
   before_action :get_course, only: %i(edit update show)
   before_action :store_previous_page, only: %i(new edit)
-  include SessionsHelper
+  before_action :require_admin, except: %i(show)
 
   def index
     @courses = Course.order_by_created_at.page(params[:page]).per Settings.per
