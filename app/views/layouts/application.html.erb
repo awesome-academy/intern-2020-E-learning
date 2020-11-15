@@ -7,8 +7,10 @@
   </head>
 
   <body>
+  <%= render partial: "shared/toastr" %>
     <%= render "layouts/header" %>
     <div class="content bg-light">
+
       <%= yield %>
     </div>
     <%= render "layouts/footer" %>

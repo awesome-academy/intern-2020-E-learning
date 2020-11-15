@@ -16,6 +16,7 @@ gem "config"
 gem "kaminari"
 gem "bootstrap-kaminari-views"
 gem "cocoon"
+gem 'toastr-rails'
 gem "bootsnap", ">= 1.4.2", require: false
 
 group :development, :test do
