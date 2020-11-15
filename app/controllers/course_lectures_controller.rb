@@ -53,7 +53,7 @@ class CourseLecturesController < ApplicationController
                              .order_by_number
                              .last
     if @course_lecture.blank?
-      flash[:success] = t "message.course.first_course"
+      flash[:success] = t "message.course.first_lecture"
       redirect_to course_lectures_path(course_id: params[:course_id])
     else
       redirect_to course_lecture_path(id: @course_lecture.id,

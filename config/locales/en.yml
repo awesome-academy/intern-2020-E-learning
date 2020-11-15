@@ -74,6 +74,8 @@ en:
       destroy_success: "Destroy user successfully"
       destroy_fail: "Can't destroy user"
       not_found: "Can't find user"
+      require_login: "You have to login first"
+      login_fail: "Login failed"
     course:
       create_success: "Create course successfully"
       create_fail: "Can't create course"
@@ -83,6 +85,8 @@ en:
       destroy_fail: "Can't destroy course"
       not_found: "Can't find course"
       welcome_back: "Welcome back!"
+      complete_course: "Congratulation! You've complete this course"
+      first_lecture: "This is the first lecture"
       lecture:
         add: "Add lecture"
     lecture:
@@ -98,7 +102,7 @@ en:
       list_lecture: "List lecture"
     enroll:
       success: "Enroll successfully"
-      failed: "Enroll failed"
+      fail: "Enroll failed"
   field:
     number: "Number"
     video_link: "Video link"
@@ -124,3 +128,4 @@ en:
   category: "Category sample"
   errors:
     invalid_birthday: "Invalid. Must be 12 years old or more"
+    code: "Code"
