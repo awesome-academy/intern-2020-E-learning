@@ -5,7 +5,10 @@
 }
 
 .carousel-caption {
+  background-color: rgba(0,0,0,0.3);
+  z-index: 0 !important;
+
   h5, p {
-    color: $gray-900;
+    color: white !important;
   }
 }
