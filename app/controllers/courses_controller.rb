@@ -1,5 +1,5 @@
 class CoursesController < ApplicationController
-  before_action :get_course, only: %i(edit update)
+  before_action :get_course, only: %i(edit update show)
   before_action :store_previous_page, only: %i(new edit)
   include SessionsHelper
 

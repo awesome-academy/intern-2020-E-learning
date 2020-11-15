@@ -12,10 +12,7 @@ require('jquery-ui')
 require('@nathanvda/cocoon')
 
 toastr.options = {
-  "positionClass": "toast-bottom-right",
-  "showDuration": 2500,
-  "hideDuration": 1000,
-  "timeOut": 1000
+  "positionClass": "toast-bottom-right"
 };
 
 global.toastr = toastr;
