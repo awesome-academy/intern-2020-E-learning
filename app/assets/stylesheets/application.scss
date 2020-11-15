@@ -11,5 +11,4 @@ $fa-font-path: '@fortawesome/fontawesome-free/webfonts';
 @import '@fortawesome/fontawesome-free/scss/v4-shims';
 @import 'bootstrap/scss/bootstrap';
 
-@import './custom.scss';
-@import './override_paginate.scss';
+@import 'toastr/toastr';
