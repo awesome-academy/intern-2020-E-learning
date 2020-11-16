@@ -36,6 +36,10 @@ vi:
     admin_dashboard: "Trang chủ quản trị viên"
     homepage: "Trang chủ"
     view_details: "Xem chi tiết"
+    admin: "Quản trị viên"
+    more_course: "Xem thêm danh sách khóa học"
+    congrats: "Chúc mừng"
+    waiting_admin_finish: "Chờ admin đồng ý để finish khóa học."
   user:
     comments: "Bình luận"
     comments_welcome: "Học viên cũ nói gì về khóa học của họ"
@@ -68,7 +72,6 @@ vi:
     reset: "Reset"
     search: "Tìm kiếm"
     reset: "Đặt lại"
-    more_course: "Xem nhiếu khóa hơn"
   message:
     sign_up_now: "Bạn chưa có tài khoản? Đăng kí ngay !"
     confirm_delete: "Bạn có chắc muốn xóa bản ghi?"
