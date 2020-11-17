@@ -13,7 +13,9 @@
 </div>
 
 <div class="form-group">
-  <%= form.label :location, t("field.location") %>
+  <%= form.label :location, t("field.location") do %>
+    <%= t "field.location" %><span> *</span>
+  <% end %>
   <%= form.text_field :location, class: "form-control" %>
 </div>
 

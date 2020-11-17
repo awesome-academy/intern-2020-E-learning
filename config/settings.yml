@@ -2,6 +2,7 @@ email:
   max_length: 150
 password:
   min_length: 6
+  max_length: 16
 name:
   max_length: 50
   min_length: 2
@@ -12,4 +13,6 @@ per: 5
 default_start_date: "01/01/1900"
 date_format: "%Y/%m/%d"
 user_course_per: 10
-Settings.default_page: 1
+default_page: 1
+min_age: 12
+max_age: 100

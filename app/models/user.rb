@@ -24,8 +24,9 @@ class User < ApplicationRecord
     format: {with: URI::MailTo::EMAIL_REGEXP},
     uniqueness: {case_sensitive: false}
   validates :password, presence: true,
-    length: {minimum: Settings.password.min_length},
-    allow_nil: true
+                       length: {minimum: Settings.password.min_length,
+                                maximum: Settings.password.max_length},
+                       allow_nil: true
   validates :role, inclusion: {in: roles.keys}
 
   has_secure_password
@@ -35,19 +36,23 @@ class User < ApplicationRecord
   scope :by_email, (lambda do |email|
     where "LOWER(users.email) LIKE ?", "%#{email.downcase}%" if email.present?
   end)
+
   scope :by_name, (lambda do |name|
     return if name.blank?
 
     where "LOWER(user_details.name) LIKE ?", "%#{name.downcase}%"
   end)
+
   scope :by_location, (lambda do |location|
     return if location.blank?
 
     where "LOWER(users.location) LIKE ?", "%#{location.downcase}%"
   end)
+
   scope :by_role, (lambda do |role|
     where role: role if role.present?
   end)
+
   scope :by_birthday, (lambda do |start_date, end_date|
     return if start_date.blank? && end_date.blank?
 
