@@ -15,6 +15,10 @@ class User < ApplicationRecord
   has_many :courses, through: :instructor_courses, dependent: :destroy
   has_many :courses, through: :user_courses, dependent: :destroy
 
+  accepts_nested_attributes_for :user_detail, allow_destroy: true
+
+  delegate :name, :birthday, :location, to: :user_detail
+
   validates :email, presence: true,
     length: {maximum: Settings.email.max_length},
     format: {with: URI::MailTo::EMAIL_REGEXP},
@@ -27,8 +31,6 @@ class User < ApplicationRecord
   has_secure_password
 
   before_save :downcase_email
-
-  accepts_nested_attributes_for :user_detail, allow_destroy: true
 
   private
 
