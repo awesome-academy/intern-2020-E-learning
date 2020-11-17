@@ -122,3 +122,5 @@ en:
     email: "Email"
     description: "Description"
   category: "Category sample"
+  errors:
+    invalid_birthday: "Invalid. Must be 12 years old or more"

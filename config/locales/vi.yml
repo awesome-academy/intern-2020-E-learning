@@ -119,3 +119,5 @@ vi:
     email: "Email"
     description: "Mô tả"
   category: "Category sample"
+  errors:
+    invalid_birthday: "Không hợp lệ. Phải trên 12 tuổi"
