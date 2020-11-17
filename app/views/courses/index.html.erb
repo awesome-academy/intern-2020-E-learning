@@ -2,6 +2,9 @@
 
 <div class="container">
   <h2><%= t "common.courses" %></h2>
+  <div class="container search-border">
+    <%= render "search_form" %>
+  </div>
   <div>
     <%= link_to t("course.new"), new_course_path, {class: "btn btn-primary"} %>
   </div>
@@ -17,12 +20,12 @@
           <th scope="col"></th>
         </tr>
       </thead>
-      <tbody>
+      <tbody id="courses">
         <%= render @courses %>
       </tbody>
     </table>
-    <div class="paginator">
-      <%= paginate @courses, theme: "twitter-bootstrap-3" %>
+    <div class="paginator" id="courses-paginate">
+      <%= paginate @courses, remote: true, theme: "twitter-bootstrap-3" %>
     </div>
   </div>
 </div>

@@ -1,9 +1,12 @@
 class CoursesController < ApplicationController
+  before_action :get_courses, only: :index
   before_action :get_course, only: %i(edit update)
   before_action :store_previous_page, only: %i(new edit)
 
   def index
-    @courses = Course.order_by_created_at.page(params[:page]).per Settings.per
+    @courses = @courses.order_by_created_at
+                       .page(params[:page])
+                       .per Settings.per
   end
 
   def new
@@ -54,5 +57,12 @@ class CoursesController < ApplicationController
 
   def store_previous_page
     session[:back_path] = request.referer
+  end
+
+  def get_courses
+    @courses = Course.by_name(params[:name])
+                     .by_description(params[:description])
+                     .by_created_date(params[:start_date], params[:end_date])
+                     .by_status(params[:status])
   end
 end
