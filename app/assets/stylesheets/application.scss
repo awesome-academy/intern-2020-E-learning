@@ -11,7 +11,7 @@ $fa-font-path: '@fortawesome/fontawesome-free/webfonts';
 @import 'bootstrap/scss/bootstrap';
 @import 'toastr/toastr';
 
-@import 'colors';
+@import 'colors.scss';
 @import 'courses';
 @import 'custom';
 @import 'footer';
@@ -21,3 +21,4 @@ $fa-font-path: '@fortawesome/fontawesome-free/webfonts';
 @import 'override_paginate';
 @import 'iframe';
 @import 'admin/admin';
+@import 'filter';

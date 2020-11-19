@@ -40,4 +40,10 @@ class Course < ApplicationRecord
   scope :by_status, (lambda do |status|
     where status: status if status.present?
   end)
+  scope :order_by_name, (lambda do |option|
+    order name: option if option.present?
+  end)
+  scope :order_by_status, (lambda do |option|
+    order status: option if option.present?
+  end)
 end

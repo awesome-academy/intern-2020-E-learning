@@ -1,10 +1,10 @@
 <tr>
-  <td><%= page_index params[:page], course_counter, Settings.per %></td>
-  <td><%= course.name %></td>
-  <td><%= course.description %></td>
-  <td><%= course.status %></td>
-  <td><%= course.estimate_time %></td>
-  <td>
+  <td class="col-1"><%= page_index params[:page], course_counter, Settings.per %></td>
+  <td class="col-2"><%= course.name %></td>
+  <td class="col-3"><%= course.description %></td>
+  <td class="col-1"><%= course.status %></td>
+  <td class="col-3"><%= course.estimate_time %></td>
+  <td class="col-2">
     <div class="inline-item">
       <%= link_to edit_admin_course_path(course), {class: "btn btn-primary"} do %>
         <i class="fas fa-pen"></i>
