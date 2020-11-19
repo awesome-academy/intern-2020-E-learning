@@ -24,6 +24,7 @@ en:
     profile: "Profile"
     settings: "Setting"
     lecture: "Lecture"
+    choose_status: "Choose status"
   user:
     comments: "Comment"
     comments_welcome: "What did student say about their courses"
@@ -41,6 +42,11 @@ en:
     create_account: "Create Account"
     add: "Add"
     save: "Save"
+    next: "Next"
+    previous: "Previous"
+    more_courses: "More courses"
+    search: "Search"
+    reset: "Reset"
   message:
     sign_up_now: "Do you have an account? Sign up now !"
     confirm_delete: "Are you sure you want to delete the item?"
@@ -85,3 +91,6 @@ en:
     role: "Role"
     description: "Description"
     estimate_time: "Estimate time"
+  placeholder:
+    name: "Name"
+    description: "Description"
