@@ -125,6 +125,7 @@ vi:
     name: "Tên"
     email: "Email"
     description: "Mô tả"
+    text_search: "Tìm theo tên và mô tả"
   category: "Category sample"
   errors:
     invalid_birthday: "Không hợp lệ. Phải trên 12 tuổi"

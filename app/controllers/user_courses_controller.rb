@@ -1,5 +1,6 @@
 class UserCoursesController < ApplicationController
   before_action :logged_in_user, only: %i(create)
+  before_action :get_courses, only: :index
 
   def index
     @courses = Course.active
@@ -33,5 +34,10 @@ class UserCoursesController < ApplicationController
     @user_course.user_id = current_user.id
     @user_course.status = UserCourse.statuses[:learning]
     @user_course.relationship = UserCourse.relationships[:student]
+  end
+
+  def get_courses
+    @courses = Course.by_name(params[:text_search])
+                     .by_description(params[:text_search])
   end
 end

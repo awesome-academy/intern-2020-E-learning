@@ -1,4 +1,6 @@
 <%= form_for [:admin, @user] do |f| %>
+  <%= render "shared/error_messages", object: f.object %>
+
   <div class="form-group">
     <%= f.label :email, t("field.email") %>
     <%= f.email_field :email, class: "form-control" %>

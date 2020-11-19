@@ -125,6 +125,7 @@ en:
     name: "Name"
     email: "Email"
     description: "Description"
+    text_search: "Search by name and description"
   category: "Category sample"
   errors:
     invalid_birthday: "Invalid. Must be 12 years old or more"
