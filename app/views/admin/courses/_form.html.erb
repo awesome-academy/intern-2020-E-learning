@@ -2,22 +2,25 @@
   <div class="form-group">
     <%= f.label :name, t("field.name") %>
     <%= f.text_field :name, class: "form-control" %>
+    <%= display_error f.object, :name, t("field.name") %>
   </div>
 
   <div class="form-group">
     <%= f.label :status, t("field.status") %>
     <%= f.collection_select :status, Course.statuses.keys, :to_s, :to_s %>
-    <br>
+    <%= display_error f.object, :status, t("field.status") %>
   </div>
 
   <div class="form-group">
     <%= f.label :description, t("field.description") %>
     <%= f.text_area :description, class: "form-control" %>
+    <%= display_error f.object, :description, t("field.description") %>
   </div>
 
   <div class="form-group">
     <%= f.label :estimate_time, t("field.estimate_time") %>
     <%= f.date_field :estimate_time, class: "form-control" %>
+    <%= display_error f.object, :estimate_time, t("field.estimate_time") %>
   </div>
 
   <h4><%= t "common.lecture" %></h4>
