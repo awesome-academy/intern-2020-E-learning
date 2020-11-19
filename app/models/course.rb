@@ -22,14 +22,17 @@ class Course < ApplicationRecord
                                 allow_destroy: true
 
   scope :order_by_created_at, ->{order created_at: :desc}
+
   scope :by_name, (lambda do |name|
     where "LOWER(name) LIKE ?", "%#{name.downcase}%" if name.present?
   end)
+
   scope :by_description, (lambda do |description|
     return if description.blank?
 
     where "LOWER(description) LIKE ?", "%#{description.downcase}%"
   end)
+
   scope :by_created_date, (lambda do |start_date, end_date|
     return if start_date.blank? && end_date.blank?
 
@@ -37,7 +40,16 @@ class Course < ApplicationRecord
     end_date = Time.zone.today.strftime Settings.date_format if end_date.blank?
     where created_at: start_date..end_date
   end)
+
   scope :by_status, (lambda do |status|
     where status: status if status.present?
+  end)
+
+  scope :order_by_name, (lambda do |option|
+    order name: option if option.present?
+  end)
+
+  scope :order_by_status, (lambda do |option|
+    order status: option if option.present?
   end)
 end

@@ -12,12 +12,44 @@
     <table class="table">
       <thead>
         <tr>
-          <th class="col-md-1"><%= t "field.num_order" %></th>
-          <th class="col-md-2"><%= t "field.name" %></th>
-          <th class="col-md-4"><%= t "field.description" %></th>
-          <th class="col-md-1"><%= t "field.status" %></th>
-          <th class="col-md-2"><%= t "field.estimate_time" %></th>
-          <th class="col-md-2"></th>
+          <th class="col-1"><%= t "field.num_order" %></th>
+          <th class="col-2">
+            <%= t "field.name" %>
+            <div class="btn-group-vertical">
+              <span>
+                <%= link_to admin_courses_path(name_option: "asc"),
+                  remote: true,
+                  class: "sort-arrow" do %>
+                  <i class="fa fa-sort-up" aria-hidden="true"></i>
+                <% end %>
+              </span>
+              <span>
+                <%= link_to admin_courses_path(name_option: "desc"),
+                  remote: true,
+                  class: "sort-arrow" do %>
+                  <i class="fa fa-sort-down" aria-hidden="true"></i>
+                <% end %>
+              </span>
+            </div>
+          </th>
+          <th class="col-4"><%= t "field.description" %></th>
+          <th class="col-1">
+            <%= t "field.status" %>
+            <div class="btn-group-vertical">
+              <span>
+                <%= link_to admin_courses_path(status_option: "asc"), remote: true, class: "sort-arrow" do %>
+                  <i class="fa fa-sort-up" aria-hidden="true"></i>
+                <% end %>
+              </span>
+              <span>
+                <%= link_to admin_courses_path(status_option: "desc"), remote: true, class: "sort-arrow" do %>
+                  <i class="fa fa-sort-down" aria-hidden="true"></i>
+                <% end %>
+              </span>
+            </div>
+          </th>
+          <th class="col-2"><%= t "field.estimate_time" %></th>
+          <th class="col-2"></th>
         </tr>
       </thead>
       <tbody id="courses">
