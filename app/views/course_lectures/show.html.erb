@@ -18,17 +18,17 @@
       <div class="navigate-button">
         <div class="inline-item button-right">
           <%= link_to t("button.next"),
-                      course_lecture_path(number: @course_lecture.number,
-                                          course_id: params[:course_id],
-                                          method: "next"),
-                      {class: "btn btn-primary"} %>
+                course_lecture_path(number: @course_lecture.number,
+                                    course_id: params[:course_id],
+                                    method: "next"),
+                {class: "btn btn-primary"} %>
         </div>
         <div class="inline-item left">
           <%= link_to t("button.previous"),
-                      course_lecture_path(number: @course_lecture.number,
-                                          course_id: params[:course_id],
-                                          method: "previous"),
-                      {class: "btn btn-primary"} %>
+                course_lecture_path(number: @course_lecture.number,
+                                    course_id: params[:course_id],
+                                    method: "previous"),
+                {class: "btn btn-primary"} %>
         </div>
       </div>
     </div>

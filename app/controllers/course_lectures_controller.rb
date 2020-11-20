@@ -1,6 +1,9 @@
 class CourseLecturesController < ApplicationController
-  before_action :get_course, only: %i(index show)
-  before_action :get_course_lectures, only: %i(index show)
+  include UserAssociationsHelper
+
+  before_action :logged_in_user, only: :show
+  before_action :get_course, :correct_learning_user, :get_course_lectures,
+   only: %i(index show)
 
   def index; end
 
@@ -11,18 +14,14 @@ class CourseLecturesController < ApplicationController
       previous_lecture
     else
       @course_lecture = @course.course_lecture.find_by number: params[:number]
+      return unless current_user && user_lecture(current_user, @course_lecture).nil?
+
+      create_user_lecture
       redirect_to course_lectures_path unless @course_lecture
     end
   end
 
   private
-
-  def get_course_lectures
-    @course_lectures = @course.course_lecture
-                              .order_by_number
-                              .page(params[:page])
-                              .per Settings.per
-  end
 
   def next_lecture
     @course_lecture = @course.course_lecture
@@ -60,5 +59,29 @@ class CourseLecturesController < ApplicationController
 
     flash[:danger] = t "message.course.not_found"
     redirect_to user_courses_path
+  end
+
+  def get_course_lectures
+    @course_lectures = @course.course_lecture.order_by_number
+  end
+
+  def create_user_lecture
+    user_lecture_new = UserLecture.new
+    user_lecture_new.course_lecture_id = @course_lecture.id
+    user_lecture_new.user_id = current_user.id
+    user_lecture_new.status = UserLecture.statuses[:learned]
+
+    if user_lecture_new.save()
+      flash[:sucess] = t "message.user_lecture.leaning_lecture"
+    else
+      flash[:danger] = t "message.user_lecture.cant_create"
+    end
+  end
+
+  def correct_learning_user
+    return if current_user && user_course(current_user, @course)&.learning?
+
+    flash[:danger] = t "message.user.require_login"
+    redirect_to login_path
   end
 end

@@ -7,6 +7,9 @@
             course_lecture_path(number: course_lecture.number,
                                 id: course_lecture.id,
                                 course_id: course_lecture.course_id) %>
+          <% if current_user && user_lecture(current_user, course_lecture)&.learned? %>
+            <span class="badge badge-success"><%= t "status.learned" %></span>
+          <% end %>
         </p>
       </div>
   </div>

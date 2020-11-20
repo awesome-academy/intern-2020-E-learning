@@ -9,13 +9,26 @@
 
       <div class="inline-item">
         <h2><%= @course.name %></h2>
-        <%= button_to user_courses_path(course_id: @course.id),
-          method: :post,
-          class: "btn btn-primary" do %>
-          <%= t "common.enroll_course" %><br>
-          <%= t "common.start" %> <%= Date.today %>
+        <% if current_user && user_course(current_user, @course)&.pending? %>
+          <p><%= t "common.pending" %></p>
+          <p><%= t "common.wait_admin_confirm" %></p>
+        <% elsif current_user && user_course(current_user, @course)&.not_allowed? %>
+          <p><%= t "common.not_allowed" %></p>
+          <p><%= t "common.contact_admin_to_enroll" %></p>
+        <% else %>
+          <%= link_to user_courses_path(course_id: @course.id),
+            method: "post",
+            class: "btn btn-primary" do %>
+            <%= t "common.enroll_course" %><br>
+            <%= t "common.start" %> <%= Date.today %>
+          <% end %>
         <% end %>
       </div>
+    </div>
+
+    <div>
+      <h3><%= t "common.lectures" %></h3>
+      <%= render collection: @course_lectures, partial: "user_courses/course_lecture" %>
     </div>
   </div>
 </div>

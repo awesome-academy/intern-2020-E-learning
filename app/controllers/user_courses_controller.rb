@@ -3,7 +3,6 @@ class UserCoursesController < ApplicationController
   before_action :get_courses, only: :index
   before_action :get_user_course, :user_course_params, only: :update
   before_action :get_users_and_courses, only: :update
-  after_action :get_course_lectures, only: :new
 
   def index
     @courses = Course.active
@@ -13,7 +12,8 @@ class UserCoursesController < ApplicationController
 
   def new
     @course = Course.find_by id: params[:course_id]
-    @user_course = UserCourse.find_by course_id: params[:course_id]
+    get_course_lectures
+    @user_course = UserCourse.find_by course_id: params[:course_id], user_id: current_user.id if current_user
     return unless @user_course&.learning?
 
     flash[:success] = t "message.course.welcome_back"
@@ -24,7 +24,7 @@ class UserCoursesController < ApplicationController
     create_student_course_relationship
     if @user_course.save
       flash[:warning] = t "message.enroll.wait"
-      redirect_to root_path
+      redirect_to user_course_list_path
     else
       flash.now[:danger] = t "message.enroll.fail"
     end
@@ -73,7 +73,7 @@ class UserCoursesController < ApplicationController
 
   def get_course_lectures
     if @course
-      @course_lecture = @course.course_lecture
+      @course_lectures = @course.course_lecture
     else
       flash[:danger] = t "message.course.not_found"
       redirect_to user_course_list_path
