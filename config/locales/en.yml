@@ -41,6 +41,8 @@ en:
     more_course: "Go to the course page for more"
     congrats: "Congratulations"
     waiting_admin_finish: "Wating for approved to finish this course."
+    wait_admin_confirm: "Please wait for admin confirm"
+    pending: "Pending ..."
   user:
     comments: "Comment"
     comments_welcome: "What did student say about their courses"

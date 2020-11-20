@@ -1,8 +1,10 @@
 class UsersController < ApplicationController
-  before_action :get_user, :correct_user, only: %i(edit update)
+  before_action :get_user, only: %i(edit update)
+  before_action :correct_user, only: %i(edit update)
 
   def new
     @user = User.new
+    @user.build_user_detail
   end
 
   def create
@@ -43,15 +45,6 @@ class UsersController < ApplicationController
 
     flash.now[:danger] = t "message.user.not_found"
     redirect_to users_url
-  end
-
-  def get_users
-    @users = User.joins(:user_detail)
-                 .by_email(params[:email])
-                 .by_name(params[:name])
-                 .by_role(params[:role])
-                 .by_location(params[:location])
-                 .by_birthday(params[:start_date], params[:end_date])
   end
 
   def correct_user

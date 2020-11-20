@@ -1,5 +1,5 @@
 class Admin::CoursesController < Admin::BaseController
-  before_action :get_courses, :order_course, only: :index
+  before_action :get_courses, order_course, :order_course, only: :index
   before_action :get_course, only: %i(edit update)
   before_action :store_previous_page, only: %i(new edit)
 
@@ -36,9 +36,7 @@ class Admin::CoursesController < Admin::BaseController
 
   def edit
     @lectures = @course.course_lecture.order_by_number
-    @users = @course.users
-                    .joins(:user_detail)
-                    .page(params[:page]).per Settings.per
+    @users = @course.users.left_outer_joins(:user_detail)
   end
 
   private

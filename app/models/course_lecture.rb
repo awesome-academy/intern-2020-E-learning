@@ -5,7 +5,7 @@ class CourseLecture < ApplicationRecord
   belongs_to :course
 
   validates :name, :video_link, presence: true
-  validates :number, resence: true,
+  validates :number, presence: true,
                      numericality: {only_integer: true},
                      uniqueness: {scope: :course_id}
 
