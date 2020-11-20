@@ -1,0 +1,13 @@
+<% provide :title, t("common.congrats") %>
+
+<div class="container center-page">
+  <div>
+    <%= image_tag Settings.trophy_img, class: "complete-image" %>
+  </div>
+  <h2><%= t "message.course.complete_course" %></h2>
+  <p><%= t "common.waiting_admin_finish" %></p>
+  <p><%= t "common.more_course" %></p>
+  <%= link_to t("button.more_courses"),
+    user_courses_path,
+    {class: "btn btn-primary"} %>
+</div>

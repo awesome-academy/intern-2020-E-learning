@@ -1,6 +1,8 @@
 <%= form_for [:admin, @course] do |f| %>
   <div class="form-group">
-    <%= f.label :name, t("field.name") %>
+    <%= f.label :name do %>
+      <%= t "field.name" %><span> *</span>
+    <% end %>
     <%= f.text_field :name, class: "form-control" %>
     <%= display_error f.object, :name, t("field.name") %>
   </div>
@@ -12,7 +14,9 @@
   </div>
 
   <div class="form-group">
-    <%= f.label :description, t("field.description") %>
+    <%= f.label :description do %>
+      <%= t "field.description" %><span> *</span>
+    <% end %>
     <%= f.text_area :description, class: "form-control" %>
     <%= display_error f.object, :description, t("field.description") %>
   </div>

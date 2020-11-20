@@ -16,3 +16,7 @@ user_course_per: 10
 default_page: 1
 min_age: 12
 max_age: 100
+description:
+  max_length: 250
+favicon_logo: "logo2.png"
+trophy_img: "trophy.png"

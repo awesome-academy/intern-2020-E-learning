@@ -11,14 +11,6 @@ class CourseLecturesController < ApplicationController
 
   private
 
-  def get_course
-    @course = Course.find_by id: params[:course_id]
-    return if @course
-
-    flash[:danger] = t "message.course.not_found"
-    redirect_to admin_courses_path
-  end
-
   def get_course_lectures
     @course_lectures = @course.course_lecture
                               .order_by_number
@@ -57,5 +49,13 @@ class CourseLecturesController < ApplicationController
 
     flash[:success] = t "message.course.first_course"
     redirect_to course_lectures_path(course_id: params[:course_id])
+  end
+
+  def get_course
+    @course = Course.find_by id: params[:course_id]
+    return if @course
+
+    flash[:danger] = t "message.course.not_found"
+    redirect_to user_courses_path
   end
 end

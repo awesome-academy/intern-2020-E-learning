@@ -3,7 +3,7 @@ class UserCourse < ApplicationRecord
 
   belongs_to :user
   belongs_to :course
-  enum status: {learning: 0, pending: 1, finish: 2}
+  enum status: {learning: 0, pending: 1, finish: 2, not_allowed: 3}
   enum relationship: {student: 0, instructor: 1}
 
   validates :user_id, :course_id, presence: true
