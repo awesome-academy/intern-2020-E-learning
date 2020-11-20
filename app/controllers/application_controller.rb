@@ -23,4 +23,8 @@ class ApplicationController < ActionController::Base
   def get_current_user
     current_user
   end
+
+  def get_current_user? user
+    current_user? user
+  end
 end

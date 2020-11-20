@@ -1,4 +1,5 @@
 en:
+  error: "error"
   hello: "Hello world"
   locales:
     english: "English"

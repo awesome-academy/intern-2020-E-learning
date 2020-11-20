@@ -1,4 +1,5 @@
 vi:
+  error: "error"
   hello: "Hello world"
   locales:
     english: "Anh"
@@ -118,6 +119,10 @@ vi:
     role: "Vai trò"
     description: "Mô tả"
     estimate_time: "Thời gian dự kiến"
+    start_birthday_date: "Sinh nhật bắt đầu"
+    end_birthday_date: "Sinh nhật tới"
+  placeholder:
+    name: "Tên"
     start_birthday_date: "Ngày sinh nhật từ"
     end_birthday_date: "Ngày sinh nhật tới"
   placeholder:

@@ -15,6 +15,11 @@ class Course < ApplicationRecord
   has_many :users, through: :user_courses, dependent: :destroy
   has_many :categories, through: :course_categories, dependent: :destroy
 
+  validates :name, presence: true,
+    length: {maximum: Settings.name.max_length,
+             minimum: Settings.name.min_length}
+  validates :description, presence: true,
+    length: {maximum: Settings.description.max_length}
   validates :status, inclusion: {in: statuses.keys}
 
   accepts_nested_attributes_for :course_lecture,
