@@ -16,6 +16,9 @@
               <%= t("common.account") %> <b class="caret"></b>
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <%= link_to t("common.my_courses"),
+                my_courses_path,
+                class: "dropdown-item" %>
               <%= link_to t("common.profile"),
                 edit_user_registration_path(current_user.id),
                 class: "dropdown-item" %>

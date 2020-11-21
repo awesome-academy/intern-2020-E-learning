@@ -1,5 +1,5 @@
 <%= search_form_for @search, url: user_courses_path do |f| %>
-  <%= f.search_field :course_info_cont,
+  <%= f.search_field :name_or_description_cont,
     class: "form-control form-control-sm ml-3 w-75",
     placeholder: t("placeholder.text_search") %>
 <% end %>

@@ -42,6 +42,7 @@ vi:
     waiting_admin_finish: "Chờ admin đồng ý để finish khóa học."
     wait_admin_confirm: "Vui lòng chờ admin xác nhận"
     pending: "Chờ ..."
+    my_courses: "Khóa học của tôi"
   user:
     comments: "Bình luận"
     comments_welcome: "Học viên cũ nói gì về khóa học của họ"
@@ -142,3 +143,10 @@ vi:
   errors:
     invalid_birthday: "Không hợp lệ. Phải trên 12 tuổi"
     code: "Mã"
+  status:
+    all: "Tất cả"
+    learning: "Đang học"
+    not_allowed: "Cấm"
+    not_allow: "Cấm"
+    pending: "Chờ"
+    finish: "Hoàn thành"

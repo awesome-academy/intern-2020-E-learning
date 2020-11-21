@@ -1,6 +1,7 @@
 <%= provide :title, t("common.courses") %>
 
 <div class="container-fluid">
+  <h1><%= t "common.courses" %></h1>
   <div class="row">
     <div class="col-md-3 categories">
       <div class="list-categories">
@@ -15,11 +16,14 @@
     </div>
 
     <div class="col-md-9">
-      <div class="list-course">
+      <div class="courses" id="courses">
         <%= render collection: @courses, partial: "user_courses/course" %>
+        <% if @courses.blank? %>
+          <p><%= t "common.no_course_found" %></p>
+        <% end %>
       </div>
       <div class="paginator" id="courses-paginate">
-        <%= paginate @courses, theme: "twitter-bootstrap-3" %>
+        <%= paginate @courses, remote: true, theme: "twitter-bootstrap-3" %>
       </div>
     </div>
   </div>

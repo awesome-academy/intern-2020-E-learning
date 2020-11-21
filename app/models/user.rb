@@ -14,6 +14,7 @@ class User < ApplicationRecord
   has_one :user_detail, dependent: :destroy, inverse_of: :user
   has_many :user_courses, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :user_lectures, dependent: :destroy
   has_many :courses, through: :instructor_courses, dependent: :destroy
   has_many :courses, through: :user_courses, dependent: :destroy
 

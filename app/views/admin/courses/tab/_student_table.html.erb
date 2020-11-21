@@ -8,10 +8,11 @@
       <th scope="col"><%= t "field.birthday" %></th>
       <th scope="col"><%= t "field.location" %></th>
       <th scope="col"><%= t "field.enroll_status" %></th>
+      <th scope="col"><%= t "field.lecture_learned" %></th>
       <th scope="col"></th>
     </tr>
     </thead>
-    <tbody>
+    <tbody id="users">
       <%= render collection: @users, partial: "admin/courses/tab/user" %>
     </tbody>
   </table>

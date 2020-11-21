@@ -57,6 +57,18 @@ class Course < ApplicationRecord
     order status: option if option.present?
   end)
 
+  scope :by_ids, (lambda do |ids|
+    where id: ids if ids.present?
+  end)
+
+  scope :by_user_id, (lambda do |user_id|
+    where user_courses: {user_id: user_id} if user_id.present?
+  end)
+
+  scope :exclude_ids, (lambda do |course_learned_ids|
+    where.not id: course_learned_ids if course_learned_ids.present?
+  end)
+
   ransack_alias :course_info, :name_or_description
 
   ransacker :created_at do
