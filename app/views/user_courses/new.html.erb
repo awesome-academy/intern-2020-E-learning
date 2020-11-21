@@ -15,9 +15,17 @@
         <% elsif current_user && user_course(current_user, @course)&.not_allowed? %>
           <p><%= t "common.not_allowed" %></p>
           <p><%= t "common.contact_admin_to_enroll" %></p>
+        <% elsif current_user && user_course(current_user, @course)&.finish? %>
+          <p><%= t "common.completed" %></p>
+          <p><%= t "common.still_see_materials" %>
+            <%= link_to t("common.materials"),
+              course_lectures_path(course_id: @course.id),
+              method: :get,
+              class: "inline-item" %>
+          </p>
         <% else %>
           <%= link_to user_courses_path(course_id: @course.id),
-            method: "post",
+            method: :post,
             class: "btn btn-primary" do %>
             <%= t "common.enroll_course" %><br>
             <%= t "common.start" %> <%= Date.today %>

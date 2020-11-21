@@ -51,4 +51,7 @@ class Course < ApplicationRecord
   scope :order_by_status, (lambda do |option|
     order status: option if option.present?
   end)
+  scope :by_ids, (lambda do |ids|
+    where id: ids if ids
+  end)
 end

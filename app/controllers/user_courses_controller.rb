@@ -1,13 +1,12 @@
 class UserCoursesController < ApplicationController
   before_action :logged_in_user, only: %i(create)
-  before_action :get_courses, only: :index
-  before_action :get_user_course, :user_course_params, only: :update
-  before_action :get_users_and_courses, only: :update
+  before_action :get_course_by_user_course, :get_courses, only: :index
 
   def index
-    @courses = Course.active
-                     .page(params[:page])
-                     .per Settings.user_course_per
+    @courses = @courses.active
+                       .by_ids(@course_id)
+                       .page(params[:page])
+                       .per Settings.user_course_per
   end
 
   def new
@@ -24,18 +23,9 @@ class UserCoursesController < ApplicationController
     create_student_course_relationship
     if @user_course.save
       flash[:warning] = t "message.enroll.wait"
-      redirect_to user_course_list_path
+      redirect_to user_courses_path
     else
       flash.now[:danger] = t "message.enroll.fail"
-    end
-  end
-
-  def update
-    if @user_course.update user_course_params
-      flash[:success] = t "user_course.update_success"
-    else
-      flash[:fail] = t "user_course.update_fail"
-      redirect_to courses_path
     end
   end
 
@@ -54,21 +44,17 @@ class UserCoursesController < ApplicationController
                      .by_description(params[:text_search])
   end
 
-  def get_user_course
-    @user_course = UserCourse.find_by id: params[:id]
-    return if @user_course
+  def get_course_by_user_course
+    return unless params[:status].present?
 
-    flash[:danger] = "message.user_course.not_found"
-    redirect_to courses_path
+    @course_id = UserCourse.by_user_id(current_user.id)
+                           .by_status(params[:status])
+                           .pluck(:course_id)
+                           .uniq
   end
 
   def user_course_params
     params.require(:user_course).permit UserCourse::USER_COURSE_PARAMS
-  end
-
-  def get_users_and_courses
-    @course = Course.find_by(id: @user_course.course_id)
-    @users = @course.users
   end
 
   def get_course_lectures
@@ -76,7 +62,7 @@ class UserCoursesController < ApplicationController
       @course_lectures = @course.course_lecture
     else
       flash[:danger] = t "message.course.not_found"
-      redirect_to user_course_list_path
+      redirect_to user_courses_path
     end
   end
 end

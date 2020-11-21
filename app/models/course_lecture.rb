@@ -12,4 +12,7 @@ class CourseLecture < ApplicationRecord
   scope :order_by_number, ->{order number: :asc}
   scope :get_next_number, ->(current_num){where "number > ?", current_num}
   scope :get_previous_number, ->(current_num){where "number < ?", current_num}
+  scope :by_course_id, (lambda do |course_id|
+    where course_id: course_id if course_id.present?
+  end)
 end

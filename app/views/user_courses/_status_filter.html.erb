@@ -1,0 +1,19 @@
+<%= link_to user_courses_path, remote: true do %>
+  <span class="badge badge-secondary"><%= t "common.all" %></span>
+<% end %>
+
+<%= link_to user_courses_path(status: "learning"), remote: true do %>
+  <span class="badge badge-primary"><%= t "status.learning" %></span>
+<% end %>
+
+<%= link_to user_courses_path(status: "not_allowed"), remote: true do %>
+  <span class="badge badge-danger"><%= t "status.not_allow" %></span>
+<% end %>
+
+<%= link_to user_courses_path(status: "pending"), remote: true do %>
+  <span class="badge badge-warning"><%= t "status.pending" %></span>
+<% end %>
+
+<%= link_to user_courses_path(status: "finish"), remote: true do %>
+  <span class="badge badge-success"><%= t "status.finish" %></span>
+<% end %>

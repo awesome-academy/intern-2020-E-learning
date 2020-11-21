@@ -1,6 +1,4 @@
 class CourseLecturesController < ApplicationController
-  include UserAssociationsHelper
-
   before_action :logged_in_user, only: :show
   before_action :get_course, :correct_learning_user, :get_course_lectures,
    only: %i(index show)
@@ -72,14 +70,16 @@ class CourseLecturesController < ApplicationController
     user_lecture_new.status = UserLecture.statuses[:learned]
 
     if user_lecture_new.save()
-      flash[:sucess] = t "message.user_lecture.leaning_lecture"
+      flash[:success] = t "message.user_lecture.leaning_lecture"
     else
       flash[:danger] = t "message.user_lecture.cant_create"
     end
   end
 
   def correct_learning_user
-    return if current_user && user_course(current_user, @course)&.learning?
+    return if current_user &&
+      (user_course(current_user, @course)&.learning? ||
+      user_course(current_user, @course)&.finish?)
 
     flash[:danger] = t "message.user.require_login"
     redirect_to login_path

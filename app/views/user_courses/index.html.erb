@@ -2,6 +2,13 @@
 
 <div class="container-fluid">
   <div class="row">
+    <% if current_user %>
+      <div class="col-md-12">
+        <%= render "status_filter" %>
+      </div>
+    <% end %>
+  </div>
+  <div class="row">
     <div class="col-md-3 categories">
       <div class="list-categories">
         <ul class="list-group">
@@ -15,10 +22,15 @@
     </div>
 
     <div class="col-md-9">
-      <div class="list-course">
+      <div class="courses" id="courses">
         <%= render collection: @courses, partial: "user_courses/course" %>
+        <% if @courses.blank? %>
+          <p><%= t "common.no_course_found" %></p>
+        <% end %>
       </div>
-      <%= paginate @courses, theme: "twitter-bootstrap-3" %>
+      <div class="paginator" id="courses-paginate">
+        <%= paginate @courses, remote: true, theme: "twitter-bootstrap-3" %>
+      </div>
     </div>
   </div>
 </div>

@@ -8,18 +8,20 @@
               {alt: t("course.picture_alt"), class: "course-image"} %>
           </div>
           <div class="card-body">
-            <%= link_to course.name,
-              new_user_course_path(course_id: course.id),
-              {class: "card-title h4"} %>
-            <% if current_user %>
-              <% if user_course(current_user, course)&.learning? %>
-                <span class="badge badge-success"><%= t "status.learning" %></span>
-              <% elsif user_course(current_user, course)&.not_allowed? %>
-                <span class="badge badge-danger"><%= t "status.not_allow" %></span>
-              <% elsif user_course(current_user, course)&.pending? %>
-                <span class="badge badge-warning"><%= t "status.pending" %></span>
+              <%= link_to course.name,
+                new_user_course_path(course_id: course.id),
+                {class: "card-title h4"} %>
+              <% if current_user %>
+                <% if user_course(current_user, course)&.learning? %>
+                  <span class="badge badge-primary"><%= t "status.learning" %></span>
+                <% elsif user_course(current_user, course)&.not_allowed? %>
+                  <span class="badge badge-danger"><%= t "status.not_allow" %></span>
+                <% elsif user_course(current_user, course)&.pending? %>
+                  <span class="badge badge-warning"><%= t "status.pending" %></span>
+                <% elsif user_course(current_user, course)&.finish? %>
+                  <span class="badge badge-success"><%= t "status.finish" %></span>
+                <% end %>
               <% end %>
-            <% end %>
             <p class="card-text"><%= course.description %></p>
           </div>
         </div>
