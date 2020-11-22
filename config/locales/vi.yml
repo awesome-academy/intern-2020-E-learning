@@ -32,6 +32,9 @@ vi:
     previous: "Trước"
     next: "Sau"
     not_lecture_found: "Không tìm thấy bản ghi"
+    admin_dashboard: "Trang chủ quản trị viên"
+    homepage: "Trang chủ"
+    view_details: "Xem chi tiết"
   user:
     comments: "Bình luận"
     comments_welcome: "Học viên cũ nói gì về khóa học của họ"

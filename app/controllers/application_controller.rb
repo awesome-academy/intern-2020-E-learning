@@ -19,4 +19,8 @@ class ApplicationController < ActionController::Base
     flash[:danger] = t "message.user.require_login"
     redirect_to login_url
   end
+
+  def get_current_user
+    current_user
+  end
 end

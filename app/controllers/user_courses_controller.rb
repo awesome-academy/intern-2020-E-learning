@@ -7,6 +7,14 @@ class UserCoursesController < ApplicationController
                      .per Settings.user_course_per
   end
 
+  def new
+    @course = Course.find_by id: params[:course_id]
+    return if @course
+
+    flash[:danger] = t "message.course.not_found"
+    redirect_to user_courses_path
+  end
+
   def create
     create_student_course_relationship
     if @user_course.save

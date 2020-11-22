@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-light ftco_navbar bg-light ftco-navbar-dark shadow" id="fixed-nav">
   <div class="container">
     <span>
-      <%= link_to root_path, {class: "nav-link"} do %>
+      <%= link_to admin_root_path, {class: "nav-link"} do %>
         <%= image_tag Settings.logo_image, class: "logo" %>
       <% end %>
     </span>
@@ -14,7 +14,7 @@
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <%= link_to t("common.profile"),
-                edit_user_path(current_user.id),
+                edit_admin_user_path(current_user.id),
                 class: "dropdown-item" %>
               <div class="dropdown-divider"></div>
               <%= link_to t("common.logout"),
@@ -25,10 +25,14 @@
           </li>
         <% else %>
           <li class="nav-item cta">
-            <%= link_to t("common.sign_in"), login_path , {class:"nav-link ml-lg-2"} %>
+            <%= link_to t("common.sign_in"),
+              login_path ,
+              {class:"nav-link ml-lg-2"} %>
           </li>
           <li class="nav-item cta">
-            <%= link_to t("common.sign_up"), signup_path , {class:"nav-link ml-lg-2"} %>
+            <%= link_to t("common.sign_up"),
+              signup_path ,
+              {class:"nav-link ml-lg-2"} %>
           </li>
         <% end %>
 

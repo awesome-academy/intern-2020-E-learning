@@ -1,8 +1,6 @@
-class CoursesController < ApplicationController
-  include SessionsHelper
-
+class Admin::CoursesController < Admin::BaseController
   before_action :get_courses, only: :index
-  before_action :get_course, only: %i(edit update show)
+  before_action :get_course, only: %i(edit update)
   before_action :store_previous_page, only: %i(new edit)
 
   def index
@@ -19,7 +17,7 @@ class CoursesController < ApplicationController
     @course = Course.new course_params
     if @course.save
       flash[:info] = t "message.course.create_success"
-      redirect_to courses_path
+      redirect_to admin_courses_path
     else
       flash.now[:danger] = t "message.course.create_fail"
       render :new
@@ -43,13 +41,6 @@ class CoursesController < ApplicationController
                     .page(params[:page]).per Settings.per
   end
 
-  def show
-    return unless current_user&.user_courses&.enrolled(params[:id])
-
-    flash[:success] = t "message.course.welcome_back"
-    redirect_to course_lectures_path(course_id: params[:id])
-  end
-
   private
 
   def course_params
@@ -61,7 +52,7 @@ class CoursesController < ApplicationController
     return if @course
 
     flash[:danger] = t "message.course.not_found"
-    redirect_to courses_path
+    redirect_to admin_courses_path
   end
 
   def store_previous_page
