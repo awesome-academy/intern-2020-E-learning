@@ -16,7 +16,7 @@ class CourseLecturesController < ApplicationController
     return if @course
 
     flash[:danger] = t "message.course.not_found"
-    redirect_to user_courses_path
+    redirect_to admin_courses_path
   end
 
   def get_course_lectures

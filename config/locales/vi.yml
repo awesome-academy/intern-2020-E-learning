@@ -33,6 +33,9 @@ vi:
     next: "Sau"
     not_lecture_found: "Không tìm thấy bản ghi"
     expire_course: "Hủy"
+    admin_dashboard: "Trang chủ quản trị viên"
+    homepage: "Trang chủ"
+    view_details: "Xem chi tiết"
   user:
     comments: "Bình luận"
     comments_welcome: "Học viên cũ nói gì về khóa học của họ"
@@ -69,6 +72,7 @@ vi:
   message:
     sign_up_now: "Bạn chưa có tài khoản? Đăng kí ngay !"
     confirm_delete: "Bạn có chắc muốn xóa bản ghi?"
+    require_permission: "Bạn không có quyền thực hiện hành động này"
     user:
       create_success: "Tạo người dùng thành công"
       create_fail: "Không thể tạo người dùng"

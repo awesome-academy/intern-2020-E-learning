@@ -1,20 +1,9 @@
-class UsersController < ApplicationController
+class Admin::UsersController < Admin::BaseController
+  before_action :get_users, only: :index
   before_action :get_user, only: %i(edit update)
 
-  def new
-    @user = User.new
-  end
-
-  def create
-    @user = User.new user_params
-    if @user.save
-      log_in @user
-      flash[:info] = t "message.user.create_success"
-      redirect_to root_url
-    else
-      flash.now[:danger] = t "message.user.create_fail"
-      render :new
-    end
+  def index
+    @users = @users.page(params[:page]).per Settings.per
   end
 
   def edit
@@ -43,5 +32,14 @@ class UsersController < ApplicationController
 
     flash.now[:danger] = t "message.user.not_found"
     redirect_to users_url
+  end
+
+  def get_users
+    @users = User.left_outer_joins(:user_detail)
+                 .by_email(params[:email])
+                 .by_name(params[:name])
+                 .by_role(params[:role])
+                 .by_location(params[:location])
+                 .by_birthday(params[:start_date], params[:end_date])
   end
 end

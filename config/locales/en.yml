@@ -34,6 +34,9 @@ en:
     next: "Next"
     not_lecture_found: "No lecture found"
     expire_course: "Expire"
+    admin_dashboard: "Admin dashboard"
+    homepage: "Home page"
+    view_details: "View details"
   user:
     comments: "Comment"
     comments_welcome: "What did student say about their courses"
@@ -64,6 +67,7 @@ en:
   message:
     sign_up_now: "Do you have an account? Sign up now !"
     confirm_delete: "Are you sure you want to delete the item?"
+    require_permission: "You don't have permission to do this action"
     user:
       create_success: "Create user successfully"
       create_fail: "Can't create user"
