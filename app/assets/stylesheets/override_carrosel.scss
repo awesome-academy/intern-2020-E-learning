@@ -1,0 +1,12 @@
+.carousel-control-next, .carousel-control-prev {
+  z-index: 0 !important;
+}
+
+.carousel-caption {
+  background-color: rgba(0,0,0,0.3);
+  z-index: 0 !important;
+
+  h5, p {
+    color: white !important;
+  }
+}

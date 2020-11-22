@@ -2,7 +2,6 @@ const jquery = require('jquery')
 const toastr = require('toastr')
 
 require('./course')
-require('./filter')
 require('@rails/ujs').start()
 require('@rails/activestorage').start()
 require('channels')
@@ -11,6 +10,10 @@ require('bootstrap/dist/js/bootstrap')
 require('jquery')
 require('jquery-ui')
 require('@nathanvda/cocoon')
+
+toastr.options = {
+  "positionClass": "toast-bottom-right"
+};
 
 global.toastr = toastr;
 

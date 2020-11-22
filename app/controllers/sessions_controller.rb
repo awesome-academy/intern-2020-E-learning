@@ -1,11 +1,13 @@
 class SessionsController < ApplicationController
-  def new; end
+  def new
+    session[:return_to] = request.referer
+  end
 
   def create
     user = User.find_by email: params[:session][:email].downcase
     if user &.authenticate(params[:session][:password])
       log_in user
-      redirect_to root_path
+      redirect_by_role
     else
       flash.now[:danger] = t "message.user.login_fail"
       render :new
@@ -15,5 +17,16 @@ class SessionsController < ApplicationController
   def destroy
     log_out if logged_in?
     redirect_to root_url
+  end
+
+  private
+
+  def redirect_by_role
+    if current_user.admin?
+      redirect_to admin_root_url
+      return
+    end
+
+    redirect_to session.delete(:return_to) || root_url
   end
 end

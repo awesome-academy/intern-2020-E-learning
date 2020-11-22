@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= yield :title %></title>
+    <%= render "layouts/rails_default" %>
+    <%= render "layouts/custom" %>
+  </head>
+
+  <body>
+    <%= render partial: "shared/toastr" %>
+    <%= render "layouts/admin/header" %>
+    <div class="content bg-light">
+      <%= yield %>
+    </div>
+    <%= render "layouts/admin/footer" %>
+  </body>
+</html>

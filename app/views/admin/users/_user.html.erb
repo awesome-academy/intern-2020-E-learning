@@ -1,11 +1,13 @@
 <tr>
   <td><%= page_index params[:page], user_counter, Settings.per %></td>
-  <td><%= user.code %></td>
   <td><%= user.email %></td>
+  <td><%= user.name %></td>
+  <td><%= user.location %></td>
+  <td><%= user.birthday.strftime Settings.date_format %></td>
   <td><%= user.role %></td>
   <td>
     <div class="inline-item">
-      <%= link_to edit_user_path(user), {class: "btn btn-primary"} do %>
+      <%= link_to edit_admin_user_path(user), {class: "btn btn-primary"} do %>
         <i class="fas fa-pen"></i>
       <% end %>
     </div>

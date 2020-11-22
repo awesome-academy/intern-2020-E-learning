@@ -24,8 +24,9 @@ class User < ApplicationRecord
     format: {with: URI::MailTo::EMAIL_REGEXP},
     uniqueness: {case_sensitive: false}
   validates :password, presence: true,
-    length: {minimum: Settings.password.min_length},
-    allow_nil: true
+                       length: {minimum: Settings.password.min_length,
+                                maximum: Settings.password.max_length},
+                       allow_nil: true
   validates :role, inclusion: {in: roles.keys}
 
   has_secure_password

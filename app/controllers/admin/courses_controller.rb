@@ -1,5 +1,5 @@
-class CoursesController < ApplicationController
-  before_action :get_courses, only: :index
+class Admin::CoursesController < Admin::BaseController
+  before_action :get_courses, :order_course, only: :index
   before_action :get_course, only: %i(edit update)
   before_action :store_previous_page, only: %i(new edit)
 
@@ -17,7 +17,7 @@ class CoursesController < ApplicationController
     @course = Course.new course_params
     if @course.save
       flash[:info] = t "message.course.create_success"
-      redirect_to courses_path
+      redirect_to admin_courses_path
     else
       flash.now[:danger] = t "message.course.create_fail"
       render :new
@@ -52,7 +52,7 @@ class CoursesController < ApplicationController
     return if @course
 
     flash[:danger] = t "message.course.not_found"
-    redirect_to courses_path
+    redirect_to admin_courses_path
   end
 
   def store_previous_page
@@ -64,5 +64,10 @@ class CoursesController < ApplicationController
                      .by_description(params[:description])
                      .by_created_date(params[:start_date], params[:end_date])
                      .by_status(params[:status])
+  end
+
+  def order_course
+    @courses = @courses.order_by_name(params[:name_option])
+                       .order_by_status(params[:status_option])
   end
 end

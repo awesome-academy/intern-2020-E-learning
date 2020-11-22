@@ -1,0 +1,63 @@
+<% provide :title, t("common.courses") %>
+
+<div class="container">
+  <h2><%= t "common.courses" %></h2>
+  <div class="search-border">
+    <%= render "search_form" %>
+  </div>
+  <div>
+    <%= link_to t("course.new"), new_admin_course_path, {class: "btn btn-primary"} %>
+  </div>
+  <div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th class="col-1"><%= t "field.num_order" %></th>
+          <th class="col-2">
+            <%= t "field.name" %>
+            <div class="btn-group-vertical">
+              <span>
+                <%= link_to admin_courses_path(name_option: "asc"),
+                  remote: true,
+                  class: "sort-arrow" do %>
+                  <i class="fa fa-sort-up" aria-hidden="true"></i>
+                <% end %>
+              </span>
+              <span>
+                <%= link_to admin_courses_path(name_option: "desc"),
+                  remote: true,
+                  class: "sort-arrow" do %>
+                  <i class="fa fa-sort-down" aria-hidden="true"></i>
+                <% end %>
+              </span>
+            </div>
+          </th>
+          <th class="col-4"><%= t "field.description" %></th>
+          <th class="col-1">
+            <%= t "field.status" %>
+            <div class="btn-group-vertical">
+              <span>
+                <%= link_to admin_courses_path(status_option: "asc"), remote: true, class: "sort-arrow" do %>
+                  <i class="fa fa-sort-up" aria-hidden="true"></i>
+                <% end %>
+              </span>
+              <span>
+                <%= link_to admin_courses_path(status_option: "desc"), remote: true, class: "sort-arrow" do %>
+                  <i class="fa fa-sort-down" aria-hidden="true"></i>
+                <% end %>
+              </span>
+            </div>
+          </th>
+          <th class="col-2"><%= t "field.estimate_time" %></th>
+          <th class="col-2"></th>
+        </tr>
+      </thead>
+      <tbody id="courses">
+        <%= render @courses %>
+      </tbody>
+    </table>
+    <div class="paginator" id="courses-paginate">
+      <%= paginate @courses, remote: true, theme: "twitter-bootstrap-3" %>
+    </div>
+  </div>
+</div>

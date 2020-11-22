@@ -33,3 +33,10 @@ Rails.application.configure do
 
   config.active_record.dump_schema_after_migration = false
 end
+
+Rails.env = "production"
+Settings.reload_from_files(
+  Rails.root.join("config", "settings.yml").to_s,
+  Rails.root.join("config", "settings", "#{Rails.env}.yml").to_s,
+  Rails.root.join("config", "environments", "#{Rails.env}.yml").to_s
+)

@@ -24,6 +24,17 @@ vi:
     settings: "Cài đặt"
     lecture: "Bài học"
     choose_status: "Chọn trạng thái"
+    list_lecture: "Các bài học"
+    enroll_course: "Tham gia"
+    start: "Bắt đầu"
+    updated_on: "Cập nhật vào"
+    lecture_not_found: "Không có bài học nào"
+    previous: "Trước"
+    next: "Sau"
+    not_lecture_found: "Không tìm thấy bản ghi"
+    admin_dashboard: "Trang chủ quản trị viên"
+    homepage: "Trang chủ"
+    view_details: "Xem chi tiết"
   user:
     comments: "Bình luận"
     comments_welcome: "Học viên cũ nói gì về khóa học của họ"
@@ -39,8 +50,10 @@ vi:
     estimate_time: "Thời gian"
     new: "Tạo khóa học"
     edit: "Sửa khóa học"
+    picture_alt: "Ảnh khóa học"
     lecture:
       add: "Thêm bài học"
+      list_lecture: "Danh sách bài học"
   footer:
     right: "E-learing 2020. All Rights Reserved."
   button:
@@ -54,6 +67,7 @@ vi:
     reset: "Reset"
     search: "Tìm kiếm"
     reset: "Đặt lại"
+    more_course: "Xem nhiếu khóa hơn"
   message:
     sign_up_now: "Bạn chưa có tài khoản? Đăng kí ngay !"
     confirm_delete: "Bạn có chắc muốn xóa bản ghi?"
@@ -65,6 +79,8 @@ vi:
       destroy_success: "Xóa người dùng thành công"
       destroy_fail: "Không thể xóa người dùng"
       not_found: "Không tìm thấy người dùng"
+      require_login: "Bạn cần đăng nhập trước"
+      login_fail: "Đăng nhập thất bại"
     course:
       create_success: "Tạo khóa học thành công"
       create_fail: "Không thể tạo khóa học"
@@ -73,6 +89,9 @@ vi:
       destroy_success: "Xóa khóa học thành công"
       destroy_fail: "Không thể xóa khóa học"
       not_found: "Không tìm thấy khóa học"
+      welcome_back: "Chào mừng bạn trở lại!"
+      complete_course: "Chúc mừng! Bạn đã hoàn thành khóa học này"
+      first_lecture: "Đây là bài học đầu tiên"
     lecture:
       create_success: "Tạo bài học thành công"
       create_fail: "Không thể tạo bài học"
@@ -81,6 +100,9 @@ vi:
       destroy_success: "Xóa bài học thành công"
       destroy_fail: "Không thể xóa bài học"
       not_found: "Không tìm thấy bài học"
+    enroll:
+      success: "Tham gia khóa học thành công"
+      fail: "Tham gia khóa học thất bại"
   field:
     number: "Số"
     video_link: "Link video"
@@ -103,3 +125,7 @@ vi:
     name: "Tên"
     email: "Email"
     description: "Mô tả"
+  category: "Category sample"
+  errors:
+    invalid_birthday: "Không hợp lệ. Phải trên 12 tuổi"
+    code: "Mã"

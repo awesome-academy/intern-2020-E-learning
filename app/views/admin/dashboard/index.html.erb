@@ -1,0 +1,29 @@
+<% provide :title, t("common.admin_dashboard") %>
+
+<div class="container-fluid">
+  <h1 class="mt-4"><%= t "common.homepage" %></h1>
+  <ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active"><%= t "common.homepage" %></li>
+  </ol>
+  <div class="row">
+    <div class="col-xl-3 col-md-6">
+      <div class="card bg-primary text-white mb-4">
+        <div class="card-body"><%= t "common.users" %></div>
+        <div class="card-footer d-flex align-items-center justify-content-between">
+          <%= link_to t("common.view_details"), admin_users_path, class: "small text-white stretched-link" %>
+          <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-3 col-md-6">
+      <div class="card bg-primary text-white mb-4">
+        <div class="card-body"><%= t "common.courses" %></div>
+        <div class="card-footer d-flex align-items-center justify-content-between">
+          <%= link_to t("common.view_details"), admin_courses_path, class: "small text-white stretched-link" %>
+          <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
