@@ -3,7 +3,7 @@
     <%= f.label :name do %>
       <%= t "field.name" %><span> *</span>
     <% end %>
-    <%= f.text_field :name, class: "form-control" %>
+    <%= f.text_field :name, class: "form-control", autofocus: true %>
     <%= display_error f.object, :name, t("field.name") %>
   </div>
 

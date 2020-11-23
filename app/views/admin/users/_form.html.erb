@@ -3,7 +3,7 @@
     <%= f.label :email do %>
       <%= t "field.email" %><span> *</span>
     <% end %>
-    <%= f.email_field :email, class: "form-control" %>
+    <%= f.email_field :email, class: "form-control", autofocus: true %>
     <%= display_error f.object, :email, t("field.email") %>
   </div>
 
