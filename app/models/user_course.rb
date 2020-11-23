@@ -17,4 +17,8 @@ class UserCourse < ApplicationRecord
   scope :by_user_id, (lambda do |user_id|
     where user_id: user_id if user_id.present?
   end)
+
+  scope :by_course_id, (lambda do |course_id|
+    where course_id: course_id if course_id.present?
+  end)
 end

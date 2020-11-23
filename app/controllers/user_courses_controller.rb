@@ -23,7 +23,7 @@ class UserCoursesController < ApplicationController
     create_student_course_relationship
     if @user_course.save
       flash[:warning] = t "message.enroll.wait"
-      redirect_to user_courses_path
+      redirect_to user_courses_url
     else
       flash.now[:danger] = t "message.enroll.fail"
     end
@@ -34,7 +34,7 @@ class UserCoursesController < ApplicationController
   def create_student_course_relationship
     @user_course = UserCourse.new
     @user_course.course_id = params[:course_id]
-    @user_course.user_id = get_current_user.id
+    @user_course.user_id = current_user.id
     @user_course.status = UserCourse.statuses[:pending]
     @user_course.relationship = UserCourse.relationships[:student]
   end
