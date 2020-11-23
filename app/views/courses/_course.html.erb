@@ -1,25 +1,29 @@
 <tr>
-  <td><%= page_index params[:page], course_counter, Settings.per %></td>
-  <td><%= course.name %></td>
-  <td><%= course.description %></td>
-  <td><%= course.status %></td>
-  <td><%= course.estimate_time %></td>
-  <td>
+  <td class="col-md-1">
+    <%= page_index params[:page], course_counter, Settings.per %>
+  </td>
+  <td class="col-md-2"><%= course.name %></td>
+  <td class="col-md-4"><%= course.description %></td>
+  <td class="col-md-1"><%= course.status %></td>
+  <td class="col-md-2"><%= course.estimate_time %></td>
+  <td class="col-md-2">
     <div class="inline-item">
       <%= link_to edit_course_path(course), {class: "btn btn-primary"} do %>
         <i class="fas fa-pen"></i>
       <% end %>
     </div>
-    <div class="inline-item">
-      <%= link_to course_path(
-        id: course.id,
-        course: {status: "expired"},
-        page: params[:page]),
-        method: :patch,
-        data: {confirm: t("message.confirm_delete")},
-        class: "btn btn-danger" do %>
-        <i class="fas fa-trash"></i>
-      <% end %>
-    </div>
+    <% unless course.expired? %>
+      <div class="inline-item">
+        <%= link_to course_path(
+          id: course.id,
+          course: {status: "expired"},
+          page: params[:page]),
+          method: :patch,
+          data: {confirm: t("message.confirm_delete")},
+          class: "btn btn-danger" do %>
+          <%= t "common.expire_course" %>
+        <% end %>
+      </div>
+    <% end %>
   </td>
 </tr>
