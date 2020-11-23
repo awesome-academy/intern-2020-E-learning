@@ -2,7 +2,7 @@ class CourseLecture < ApplicationRecord
   COURSE_LECTURE_PARAMS =
     %i(id name number video_link course_id _destroy).freeze
 
-  belongs_to :course
+  belongs_to :course, counter_cache: true
   has_many :user_lectures, dependent: :destroy
   has_many :comments, as: :commentable, dependent: :destroy
 

@@ -47,6 +47,13 @@ vi:
     total: "Tổng: "
     comments: "Bình luận"
     new_comment: "Bình luận mới"
+    student_management: "Quản lý học sinh"
+    students: "Học sinh"
+    course: "Khóa học: "
+    num_of_student: "Tổng học sinh: "
+    confirm: "Đồng ý"
+    finish: "Hoàn thành"
+    reject: "Từ chối"
   user:
     comments: "Bình luận"
     comments_welcome: "Học viên cũ nói gì về khóa học của họ"
@@ -69,6 +76,8 @@ vi:
   footer:
     right: "E-learing 2020. All Rights Reserved."
   button:
+    update: "Cập nhật"
+    cancel_my_account: "Hủy tài khoản"
     create_account: "Tạo tài khoản"
     add: "Thêm"
     save: "Lưu"
@@ -84,6 +93,7 @@ vi:
     sign_up_now: "Bạn chưa có tài khoản? Đăng kí ngay !"
     confirm_delete: "Bạn có chắc muốn xóa bản ghi?"
     require_permission: "Bạn không có quyền thực hiện hành động này"
+    confirm_user: "Bạn có chắc muốn đổi trạng thái cho người dùng này?"
     user:
       create_success: "Tạo người dùng thành công"
       create_fail: "Không thể tạo người dùng"
@@ -154,6 +164,7 @@ vi:
   status:
     all: "Tất cả"
     learning: "Đang học"
+    learned: "Đã học"
     not_allowed: "Cấm"
     not_allow: "Cấm"
     pending: "Chờ"

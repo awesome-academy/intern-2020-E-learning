@@ -13,7 +13,8 @@
       <thead>
         <tr>
           <th class="col-1"><%= t "field.num_order" %></th>
-          <th class="col-2">
+
+          <th>
             <div class="btn-group-vertical">
               <%= sort_link @q,
                             :name,
@@ -22,18 +23,16 @@
                             remote: true %>
             </div>
           </th>
-          <th class="col-4"><%= t "field.description" %></th>
-          <th class="col-1">
-            <div class="btn-group-vertical">
-              <%= sort_link @q,
-                            :status,
-                            t("field.status"),
-                            default_order: :asc,
-                            remote: true %>
-            </div>
+
+           <th>
+            <%= t "common.num_course_lecture" %>
           </th>
-          <th class="col-2"><%= t "field.estimate_time" %></th>
-          <th class="col-2">
+
+          <th>
+            <%= t "common.num_student" %>
+          </th>
+
+          <th>
             <%= link_to t("common.pending"),
               admin_student_managements_path(pending: true),
               remote: true %>
@@ -41,7 +40,7 @@
         </tr>
       </thead>
       <tbody id="courses">
-        <%= render @courses %>
+        <%= render collection: @courses, partial: "admin/student_managements/course" %>
       </tbody>
     </table>
     <div class="paginator" id="courses-paginate">

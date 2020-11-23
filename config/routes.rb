@@ -28,6 +28,7 @@ Rails.application.routes.draw do
       resources :users
       resources :categories
       resources :user_courses
+      resources :student_managements
     end
   end
 end

@@ -67,6 +67,10 @@ class User < ApplicationRecord
     where "user_details.birthday BETWEEN ? AND ?", start_date, end_date
   end)
 
+  scope :by_ids, (lambda do |ids|
+    where id: ids if ids.present?
+  end)
+
   scope :by_course_id, (lambda do |course_id|
     where user_courses: {course_id: course_id} if course_id.present?
   end)
@@ -77,6 +81,10 @@ class User < ApplicationRecord
 
   def enrolled_course? course_id
     user_courses.pluck(:course_id).include? course_id.to_i
+  end
+
+  def first_user_course
+    user_courses&.first
   end
 
   class << self

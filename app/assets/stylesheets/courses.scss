@@ -15,3 +15,9 @@
   overflow: scroll;
   -webkit-overflow-scrolling: touch;
 }
+
+.active {
+  a {
+    color: $earth-yellow;
+  }
+}

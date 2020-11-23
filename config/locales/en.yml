@@ -53,6 +53,13 @@ en:
     total: "Total: "
     comments: "Comments"
     new_comment: "New comment"
+    student_management: "Student Management"
+    students: "Students"
+    course: "Course: "
+    num_of_student: "Total student: "
+    confirm: "Confirm"
+    finish: "Finish"
+    reject: "Reject"
   user:
     comments: "Comment"
     comments_welcome: "What did student say about their courses"
@@ -71,6 +78,8 @@ en:
   footer:
     right: "E-learing 2020. All Rights Reserved."
   button:
+    update: "Update"
+    cancel_my_account: "Cancel account"
     create_account: "Create Account"
     add: "Add"
     save: "Save"
@@ -84,6 +93,7 @@ en:
     sign_up_now: "Do you have an account? Sign up now !"
     confirm_delete: "Are you sure you want to delete the item?"
     require_permission: "You don't have permission to do this action"
+    confirm_user: "Are you sure to change this user status?"
     user:
       create_success: "Create user successfully"
       create_fail: "Can't create user"
@@ -160,6 +170,7 @@ en:
   status:
     all: "All"
     learning: "Learning"
+    learned: "Learned"
     not_allow: "Denied"
     not_allowed: "Denied"
     pending: "Pending"
