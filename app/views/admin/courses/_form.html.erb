@@ -9,12 +9,6 @@
   </div>
 
   <div class="form-group">
-    <%= f.label :status, t("field.status") %>
-    <%= f.collection_select :status, Course.statuses.keys, :to_s, :to_s %>
-    <br>
-  </div>
-
-  <div class="form-group">
     <%= f.label :description do %>
       <%= t "field.description" %><span class="red-asterisk"> *</span>
     <% end %>
@@ -24,6 +18,18 @@
   <div class="form-group">
     <%= f.label :estimate_time, t("field.estimate_time") %>
     <%= f.date_field :estimate_time, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :status, t("field.status") %>
+    <%= f.collection_select :status, Course.statuses.keys, :to_s, :to_s %>
+
+    <%= f.label :category_ids %>
+      <%= f.select :category_ids,
+        options_for_select(@categories.map{|key, value|
+          [key, value]}),
+        {include_blank: true},
+        {class: "chosen-select", multiple: "true"} %>
   </div>
 
   <h4><%= t "common.lecture" %></h4>

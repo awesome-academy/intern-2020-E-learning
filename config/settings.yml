@@ -17,3 +17,4 @@ description:
   max_length: 250
 favicon_logo: "logo2.png"
 trophy_img: "trophy.png"
+limit_newest_cate: 7

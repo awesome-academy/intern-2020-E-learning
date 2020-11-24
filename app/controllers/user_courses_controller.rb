@@ -1,6 +1,10 @@
 class UserCoursesController < ApplicationController
   before_action :logged_in_user, only: %i(create)
-  before_action :get_course_by_user_course, :get_courses, only: :index
+  before_action :get_course_by_user_course,
+                :get_courses_by_category,
+                :get_courses,
+                :get_categories,
+                only: :index
 
   def index
     @courses = @courses.active
@@ -53,6 +57,14 @@ class UserCoursesController < ApplicationController
                            .uniq
   end
 
+  def get_courses_by_category
+    return unless params[:category_id].present?
+
+    @course_id = CourseCategory.by_category_id(params[:category_id])
+                               .pluck(:course_id)
+                               .uniq
+  end
+
   def user_course_params
     params.require(:user_course).permit UserCourse::USER_COURSE_PARAMS
   end
@@ -64,5 +76,9 @@ class UserCoursesController < ApplicationController
       flash[:danger] = t "message.course.not_found"
       redirect_to user_courses_path
     end
+  end
+
+  def get_categories
+    @categories = Category.newest
   end
 end

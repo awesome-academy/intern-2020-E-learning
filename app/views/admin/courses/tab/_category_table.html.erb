@@ -1,0 +1,18 @@
+<div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col"><%= t "field.number" %></th>
+        <th scope="col"><%= t "field.name" %></th>
+        <th scope="col"><%= t "field.description" %></th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody id="body-table">
+    </tbody>
+    <tbody id="actual_lecture">
+      <%= render collection: @categories_of_course,
+        partial: "admin/courses/tab/category" %>
+    </tbody>
+  </table>
+</div>

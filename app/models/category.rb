@@ -19,4 +19,20 @@ class Category < ApplicationRecord
   scope :by_description, (lambda do |description|
     where "description LIKE ?", "%#{description}%" if description.present?
   end)
+
+  scope :published_in_month, (lambda do |date|
+    where "MONTH(created_at) = ?", date.month
+  end)
+
+  class << self
+    def trending
+      # TODO Complete this
+      # course_categories.select(:categories_id).group(:course_id).
+    end
+
+    def newest
+      published_in_month(Time.zone.today).order_by_created_at
+        .limit(Settings.limit_newest_cate)
+    end
+  end
 end

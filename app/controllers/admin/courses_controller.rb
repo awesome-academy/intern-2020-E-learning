@@ -1,7 +1,10 @@
 class Admin::CoursesController < Admin::BaseController
-  before_action :get_courses, :get_course_has_pending_user, :order_course, only: :index
-  before_action :get_course, only: %i(edit update)
-  before_action :store_previous_page, only: %i(new edit)
+  before_action :get_courses,
+                :get_course_has_pending_user,
+                :order_course,
+                only: :index
+  before_action :get_course, :get_course_categories, only: %i(edit update)
+  before_action :store_previous_page, :get_categories, only: %i(new edit)
   after_action :create_instructor, only: :create
 
   def index
@@ -75,5 +78,15 @@ class Admin::CoursesController < Admin::BaseController
 
     course_ids = UserCourse.by_status("pending").pluck(:course_id).uniq
     @courses = @courses.by_ids course_ids
+  end
+
+  def get_categories
+    @categories = Category.all
+                          .select(:id, :name)
+                          .map{|category| [category.name, category.id]}
+  end
+
+  def get_course_categories
+    @categories_of_course = @course.categories
   end
 end
