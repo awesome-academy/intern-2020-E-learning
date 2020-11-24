@@ -60,6 +60,7 @@ en:
     confirm: "Confirm"
     finish: "Finish"
     reject: "Reject"
+    categories: "Categories"
   user:
     comments: "Comment"
     comments_welcome: "What did student say about their courses"
