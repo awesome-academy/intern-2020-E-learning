@@ -57,7 +57,7 @@ class User < ApplicationRecord
   end)
 
   def enrolled_course? course_id
-    user_courses&.pluck(:course_id)&.include?(course_id.to_i)
+    user_courses.pluck(:course_id).include? course_id.to_i
   end
 
   private

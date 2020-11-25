@@ -9,7 +9,7 @@ class UserCoursesController < ApplicationController
   end
 
   def new
-    return unless current_user.enrolled_course? params[:course_id]
+    return unless current_user&.enrolled_course? params[:course_id]
 
     flash[:success] = t "message.course.welcome_back"
     redirect_to course_lectures_path(course_id: params[:course_id])
