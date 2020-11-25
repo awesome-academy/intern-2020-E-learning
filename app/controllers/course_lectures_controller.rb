@@ -28,7 +28,8 @@ class CourseLecturesController < ApplicationController
                              .first
     if @course_lecture.blank?
       flash[:success] = t "message.course.complete_course"
-      redirect_to complete_courses_path
+      category_ids = @course.course_categories.pluck(:category_id)
+      redirect_to complete_courses_path(category_ids: category_ids)
     else
       redirect_to course_lecture_path(id: @course_lecture.id,
                                       number: @course_lecture.number,

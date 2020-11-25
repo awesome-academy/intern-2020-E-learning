@@ -1,7 +1,7 @@
-<div class="carousel-item <%= 'active' if course_counter.eql? 0 %>">
+<div class="card inline-item" style="width: 18rem;">
   <%= image_tag Settings.carosel_image, class: "d-block w-100 carosel-image" %>
-  <div class="carousel-caption d-none d-md-block">
-    <%= link_to course do %>
+  <div class="card-body">
+    <%= link_to new_user_course_path(course_id: course.id) do %>
       <h5><%= course.name %></h5>
     <% end %>
     <p><%= course.description %></p>

@@ -18,3 +18,4 @@ description:
 favicon_logo: "logo2.png"
 trophy_img: "trophy.png"
 limit_newest_cate: 7
+limit_course_suggest: 7

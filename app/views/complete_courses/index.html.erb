@@ -6,6 +6,11 @@
   </div>
   <h2><%= t "message.course.complete_course" %></h2>
   <p><%= t "common.waiting_admin_finish" %></p>
-  <p><%= t "common.more_course" %></p>
-  <%= link_to t("button.more_courses"), user_courses_path, {class: "btn btn-primary"} %>
+  <div>
+    <p><%= t "common.more_course" %></p>
+    <%= render collection: @courses, partial: "complete_courses/course" %>
+  </div>
+  <div>
+    <%= link_to t("button.more_courses"), user_courses_path %>
+  </div>
 </div>
