@@ -2,6 +2,7 @@ const jquery = require('jquery')
 const toastr = require('toastr')
 
 require('./course')
+require('./filter')
 require('@rails/ujs').start()
 require('@rails/activestorage').start()
 require('channels')
