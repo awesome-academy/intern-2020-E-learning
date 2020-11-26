@@ -1,5 +1,8 @@
 $(document).ready(function () {
   let flag = true;
+  $('.nested-fields').addClass('hide')
+  $('#sub-field').click();
+
   let number_pattern = /\d+/;
   let course_lecture_fields = [];
   let course_lecture_inputs = $('.nested-fields:first input');
@@ -9,9 +12,6 @@ $(document).ready(function () {
     if (field_name == 'destroy') field_name = '_' + field_name;
     course_lecture_fields.push(field_name);
   });
-
-  $('.nested-fields').addClass('hide')
-  $('#sub-field').click();
 
   flag = false
 
