@@ -5,6 +5,9 @@
         <%= image_tag Settings.logo_image, class: "logo" %>
       <% end %>
     </span>
+    <span>
+      <%= render "layouts/search_form" %>
+    </span>
     <div class="collapse navbar-collapse" id="ftco-nav">
       <ul class="navbar-nav ml-auto">
         <% if logged_in? %>

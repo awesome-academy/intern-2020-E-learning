@@ -47,4 +47,9 @@ class UserCoursesController < ApplicationController
     flash[:danger] = t "message.course.not_found"
     redirect_to user_courses_path
   end
+
+  def get_courses
+    @courses = Course.by_name(params[:text_search])
+                     .by_description params[:text_search]
+  end
 end
