@@ -17,6 +17,7 @@ gem "kaminari"
 gem "bootstrap-kaminari-views"
 gem "cocoon"
 gem "toastr-rails"
+gem "factory_bot_rails"
 gem "bootsnap", ">= 1.4.2", require: false
 
 group :development, :test do
@@ -35,9 +36,14 @@ end
 
 group :test do
   gem "capybara", ">= 2.15"
+  gem "database_cleaner-active_record"
+  gem "faker"
   gem "selenium-webdriver"
   gem "webdrivers"
   gem "rspec-rails", "~> 4.0.1"
+  gem "shoulda-matchers"
+  gem "simplecov", require: false
+  gem "simplecov-rcov"
 end
 
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
