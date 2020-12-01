@@ -2,6 +2,7 @@
 <html>
   <head>
     <title><%= yield :title %></title>
+    <%= favicon_link_tag asset_path(Settings.favicon_logo) %>
     <%= render "layouts/rails_default" %>
     <%= render "layouts/custom" %>
   </head>

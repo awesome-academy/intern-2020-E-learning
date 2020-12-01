@@ -35,7 +35,7 @@ class Admin::UsersController < Admin::BaseController
   end
 
   def get_users
-    @users = User.left_outer_joins(:user_detail)
+    @users = User.includes(:user_detail)
                  .by_email(params[:email])
                  .by_name(params[:name])
                  .by_role(params[:role])

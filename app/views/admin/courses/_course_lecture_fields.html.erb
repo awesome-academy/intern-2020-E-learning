@@ -1,18 +1,24 @@
 <div class="nested-fields">
   <div class="form-group">
-    <%= f.label :name, t("field.name") %>
+    <%= f.label :name do %>
+      <%= t "field.name" %><span> *</span>
+    <% end %>
     <%= f.text_field :name, class: "form-control" %>
     <%= display_error f.object, :estimate_time, t("field.estimate_time") %>
   </div>
 
   <div class="form-group">
-    <%= f.label :number, t("field.number") %>
+    <%= f.label :number do %>
+      <%= t "field.number" %><span> *</span>
+    <% end %>
     <%= f.text_field :number, class: "form-control" %>
     <%= display_error f.object, :estimate_time, t("field.estimate_time") %>
   </div>
 
   <div class="form-group">
-    <%= f.label :video_link, t("field.video_link") %>
+    <%= f.label :video_link do %>
+      <%= t "field.video_link" %><span> *</span>
+    <% end %>
     <%= f.text_field :video_link, class: "form-control" %>
     <%= display_error f.object, :estimate_time, t("field.estimate_time") %>
   </div>

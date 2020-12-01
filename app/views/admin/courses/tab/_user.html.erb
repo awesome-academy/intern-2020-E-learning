@@ -1,9 +1,26 @@
 <tr>
   <td><%= page_index params[:page], user_counter, Settings.per %></td>
-  <td><%= user.code %></td>
   <td><%= user.name %></td>
   <td><%= user.email %></td>
-  <td><%= user.birthday %></td>
+  <td><%= user.birthday.strftime Settings.date_format %></td>
   <td><%= user.location %></td>
-  <td></td>
+  <td><%= user_course(user, @course).status %></td>
+  <td>
+    <% unless user_course(user, @course).learning? %>
+      <%= link_to t("common.confirm"),
+        user_course_path(id: user_course(user, @course), user_course: {status: "learning"}),
+        method: :patch,
+        remote: true,
+        data: {confirm: t("message.confirm_user")},
+        class: "btn btn-primary" %>
+    <% end %>
+    <% unless user_course(user, @course).not_allowed? %>
+      <%= link_to t("common.reject"),
+        user_course_path(id: user_course(user, @course), user_course: {status: "not_allowed"}),
+        method: :patch,
+        remote: true,
+        data: {confirm: t("message.confirm_user")},
+        class: "btn btn-danger" %>
+    <% end %>
+  </td>
 </tr>

@@ -17,5 +17,10 @@
         <% end %>
       </div>
     </div>
+    <div>
+      <h3><%= t "common.lectures" %></h3>
+      <%= render collection: @course_lectures,
+          partial: "user_courses/course_lecture" %>
+    </div>
   </div>
 </div>

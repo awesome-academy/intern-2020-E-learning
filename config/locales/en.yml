@@ -37,6 +37,12 @@ en:
     admin_dashboard: "Admin dashboard"
     homepage: "Home page"
     view_details: "View details"
+    admin: "Admin"
+    more_course: "Go to the course page for more"
+    congrats: "Congratulations"
+    waiting_admin_finish: "Wating for approved to finish this course."
+    wait_admin_confirm: "Please wait for admin confirm"
+    pending: "Pending ..."
   user:
     comments: "Comment"
     comments_welcome: "What did student say about their courses"
@@ -63,7 +69,6 @@ en:
     more_courses: "More courses"
     search: "Search"
     reset: "Reset"
-    more_course: "More courses"
   message:
     sign_up_now: "Do you have an account? Sign up now !"
     confirm_delete: "Are you sure you want to delete the item?"
