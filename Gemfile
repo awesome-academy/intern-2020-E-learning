@@ -21,6 +21,7 @@ gem "factory_bot_rails"
 gem "bootsnap", ">= 1.4.2", require: false
 
 group :development, :test do
+  gem "rails-controller-testing"
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
   gem "rubocop", "~> 0.74.0", require: false
   gem "rubocop-checkstyle_formatter", require: false
