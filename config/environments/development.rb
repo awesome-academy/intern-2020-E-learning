@@ -36,4 +36,7 @@ Rails.application.configure do
   config.assets.quiet = true
 
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
+
+  config.action_mailer.default_url_options = {host: ENV["host"],
+                                              port: ENV["port"]}
 end
