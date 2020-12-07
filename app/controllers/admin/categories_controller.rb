@@ -14,7 +14,7 @@ class Admin::CategoriesController < Admin::BaseController
       flash[:success] = t "message.category.create_success"
       redirect_to admin_categories_path
     else
-      flash.now[:danger] = t "message.course.create_fail"
+      flash.now[:danger] = t "message.category.create_fail"
       render :new
     end
   end
@@ -40,6 +40,7 @@ class Admin::CategoriesController < Admin::BaseController
     else
       flash.now[:danger] = t "message.category.delete_fail"
     end
+    redirect_to admin_categories_path
   end
 
   private
