@@ -1,0 +1,7 @@
+$("#<%= @category.id %>").remove()
+if(!category_no) {
+  var category_no = ""
+}
+category_no = parseInt($("tr:last-child td:first-child").html()) + 1
+$("#categories").append("<%= j render locals: {category: @next_category}, partial: "category" if @next_category.present? %>")
+$("tr:last-child td:first-child").html(category_no)

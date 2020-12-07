@@ -3,6 +3,7 @@ const toastr = require('toastr')
 
 require('./course')
 require('./filter')
+require('turbolinks').start()
 require('@rails/ujs').start()
 require('@rails/activestorage').start()
 require('channels')

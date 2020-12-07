@@ -1,5 +1,7 @@
 class UserCoursesController < ApplicationController
-  before_action :logged_in_user, :create_student_course_params, only: :create
+  before_action :logged_in_user,
+                :create_student_course_params,
+                only: %i(create new)
   before_action :get_course_and_course_lectures, only: :new
   before_action :get_courses, only: :index
   before_action :get_user_course,
@@ -15,7 +17,8 @@ class UserCoursesController < ApplicationController
 
   def new
     @course = Course.find_by id: params[:course_id]
-    @user_course = UserCourse.find_by course_id: params[:course_id]
+    @user_course = current_user.user_courses
+                               .find_by course_id: params[:course_id]
     return unless @user_course&.learning?
 
     flash[:success] = t "message.course.welcome_back"
