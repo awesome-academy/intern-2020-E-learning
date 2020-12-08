@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable, :lockable
+         :recoverable, :rememberable, :validatable,
+         :omniauthable, omniauth_providers: %i(facebook)
   USER_PARAMS = [:id,
                  :email,
                  :password,
@@ -62,6 +63,17 @@ class User < ApplicationRecord
 
   def enrolled_course? course_id
     user_courses.pluck(:course_id).include? course_id.to_i
+  end
+
+  class << self
+    def from_omniauth auth
+      where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+        user.email = auth.info.email
+        user.password = Devise.friendly_token[Settings.password.min_length,
+                                              Settings.password.max_length]
+        user.skip_confirmation!
+      end
+    end
   end
 
   private

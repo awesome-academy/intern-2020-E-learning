@@ -122,6 +122,8 @@ ActiveRecord::Schema.define(version: 2020_12_07_024717) do
     t.datetime "remember_created_at"
     t.integer "failed_attempts", default: 0, null: false
     t.datetime "locked_at"
+    t.string "provider"
+    t.string "uid"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
