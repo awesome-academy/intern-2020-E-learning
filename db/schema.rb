@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_07_024717) do
+ActiveRecord::Schema.define(version: 2020_12_08_150236) do
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -124,6 +124,10 @@ ActiveRecord::Schema.define(version: 2020_12_07_024717) do
     t.datetime "locked_at"
     t.string "provider"
     t.string "uid"
+    t.string "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string "unconfirmed_email"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 

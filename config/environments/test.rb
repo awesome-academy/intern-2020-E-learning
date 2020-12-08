@@ -24,4 +24,18 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :test
 
   config.active_support.deprecation = :stderr
+
+  config.action_mailer.default_url_options = {host: ENV["host"],
+                                              port: ENV["port"]}
+
+  config.action_mailer.delivery_method = :smtp
+
+  config.action_mailer.smtp_settings = {
+    user_name: ENV["mail_user_name"],
+    password: ENV["mail_user_password"],
+    address: ENV["mail_address"],
+    domain: ENV["mail_domain"],
+    port: ENV["mail_port"],
+    authentication: :cram_md5
+  }
 end

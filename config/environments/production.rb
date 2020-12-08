@@ -23,6 +23,9 @@ Rails.application.configure do
 
   config.active_support.deprecation = :notify
 
+  config.action_mailer.default_url_options = {host: ENV["host"],
+                                              port: ENV["port"]}
+
   config.log_formatter = ::Logger::Formatter.new
 
   if ENV["RAILS_LOG_TO_STDOUT"].present?

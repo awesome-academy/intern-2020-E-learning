@@ -41,4 +41,6 @@ Devise.setup do |config|
                   ENV["facebook_app_id"],
                   ENV["facebook_app_secret"],
                   token_params: {parse: :json}
+
+  config.remember_for = 2.weeks
 end

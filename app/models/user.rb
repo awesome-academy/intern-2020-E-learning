@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  devise :database_authenticatable, :registerable,
+  devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :validatable,
          :omniauthable, omniauth_providers: %i(facebook)
   USER_PARAMS = [:id,
@@ -19,7 +19,12 @@ class User < ApplicationRecord
 
   accepts_nested_attributes_for :user_detail, allow_destroy: true
 
-  delegate :name, :birthday, :location, :status, to: :user_detail
+  delegate :name,
+           :birthday,
+           :location,
+           :status,
+           to: :user_detail,
+           allow_nil: true
 
   validates :email, presence: true,
     length: {maximum: Settings.email.max_length},
