@@ -2,7 +2,7 @@
   <td><%= page_index params[:page], user_counter, Settings.per %></td>
   <td><%= user.name %></td>
   <td><%= user.email %></td>
-  <td><%= user.birthday.strftime Settings.date_format %></td>
+  <td><%= user.birthday&.strftime Settings.date_format %></td>
   <td><%= user.location %></td>
   <td><%= user_course(user, @course).status %></td>
   <td>
