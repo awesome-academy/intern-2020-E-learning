@@ -1,4 +1,7 @@
 class ApplicationController < ActionController::Base
+  rescue_from CanCan::AccessDenied, with: :rescue_can3_exception
+  rescue_from ActiveRecord::RecordNotFound, with: :rescue_404_exception
+
   include SessionsHelper
 
   before_action :set_locale
@@ -14,7 +17,7 @@ class ApplicationController < ActionController::Base
   end
 
   def logged_in_user
-    return if logged_in?
+    return if user_signed_in?
 
     flash[:danger] = t "message.user.require_login"
     redirect_to login_url
@@ -25,6 +28,23 @@ class ApplicationController < ActionController::Base
       admin_root_url
     else
       stored_location_for(resource) || root_url
+    end
+  end
+
+  private
+
+  def rescue_404_exception
+    render file: Rails.root.join("public", "404.html").to_s, layout: false,
+           status: :not_found
+  end
+
+  def rescue_can3_exception
+    respond_to do |format|
+      format.json{head :forbidden}
+      format.html do
+        render file: Rails.root.join("public", "403.html").to_s, layout: false,
+               status: :forbidden
+      end
     end
   end
 end

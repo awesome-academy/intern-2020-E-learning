@@ -1,3 +1,5 @@
 class Admin::DashboardController < Admin::BaseController
-  def index; end
+  def index
+    authorize! :read, :dashboard
+  end
 end

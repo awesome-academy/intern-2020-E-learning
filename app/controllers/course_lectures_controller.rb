@@ -2,6 +2,8 @@ class CourseLecturesController < ApplicationController
   before_action :get_course, :get_course_lectures, only: %i(index show)
   before_action :redirect_lecture, only: :show
 
+  load_and_authorize_resource
+
   def index; end
 
   def show

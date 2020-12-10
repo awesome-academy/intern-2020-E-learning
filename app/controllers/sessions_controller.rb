@@ -15,19 +15,4 @@ class SessionsController < ApplicationController
       render :new
     end
   end
-
-  def destroy
-    log_out if logged_in?
-    redirect_to root_url
-  end
-
-  private
-
-  def redirect_by_role
-    if current_user.admin?
-      redirect_to admin_root_url
-    else
-      redirect_to session.delete(:return_to) || root_url
-    end
-  end
 end

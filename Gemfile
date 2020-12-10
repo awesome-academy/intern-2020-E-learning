@@ -20,6 +20,7 @@ gem "toastr-rails"
 gem "factory_bot_rails"
 gem "devise"
 gem "figaro"
+gem "cancancan"
 gem "omniauth"
 gem "omniauth-facebook"
 gem "bootsnap", ">= 1.4.2", require: false

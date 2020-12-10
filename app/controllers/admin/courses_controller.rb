@@ -3,6 +3,8 @@ class Admin::CoursesController < Admin::BaseController
   before_action :get_course, only: %i(edit update)
   before_action :store_previous_page, only: %i(new edit)
 
+  load_and_authorize_resource
+
   def index
     @courses = @courses.order_by_created_at
                        .page(params[:page])

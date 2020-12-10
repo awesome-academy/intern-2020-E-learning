@@ -2,6 +2,8 @@ class Admin::CategoriesController < Admin::BaseController
   before_action :get_categories, only: :index
   before_action :get_category, only: %i(edit update destroy)
 
+  load_and_authorize_resource
+
   def index; end
 
   def new
