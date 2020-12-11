@@ -66,6 +66,10 @@ class User < ApplicationRecord
     where "user_details.birthday BETWEEN ? AND ?", start_date, end_date
   end)
 
+  ransacker :birthday do
+    Arel.sql "date(user_details.birthday)"
+  end
+
   def enrolled_course? course_id
     user_courses.pluck(:course_id).include? course_id.to_i
   end

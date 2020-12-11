@@ -1,6 +1,5 @@
-<%= form_tag user_courses_path, method: :get do %>
-    <%= text_field_tag :text_search,
-      params[:text_search],
-      class: "form-control form-control-sm ml-3 w-75",
-      placeholder: t("placeholder.text_search") %>
+<%= search_form_for @search, url: user_courses_path do |f| %>
+  <%= f.search_field :course_info_cont,
+    class: "form-control form-control-sm ml-3 w-75",
+    placeholder: t("placeholder.text_search") %>
 <% end %>

@@ -4,7 +4,12 @@ class ApplicationController < ActionController::Base
 
   include SessionsHelper
 
-  before_action :set_locale
+  before_action :set_locale, :global_course_search
+
+  def global_course_search
+    @search = Course.ransack params[:search].try(:merge, m: "or"),
+                             auth_object: set_ransackable_auth_object
+  end
 
   def set_locale
     locale = params[:locale].to_s.strip.to_sym
@@ -29,6 +34,10 @@ class ApplicationController < ActionController::Base
     else
       stored_location_for(resource) || root_url
     end
+  end
+
+  def set_ransackable_auth_object
+    current_user&.admin? ? :admin : nil
   end
 
   private
