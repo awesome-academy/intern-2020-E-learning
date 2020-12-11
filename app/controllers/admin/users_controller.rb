@@ -2,6 +2,8 @@ class Admin::UsersController < Admin::BaseController
   before_action :get_users, only: :index
   before_action :get_user, only: %i(edit update)
 
+  load_and_authorize_resource
+
   def index
     @users = @users.page(params[:page]).per Settings.per
   end
