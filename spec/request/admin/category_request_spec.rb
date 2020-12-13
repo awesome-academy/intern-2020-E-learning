@@ -1,7 +1,7 @@
 require "rails_helper"
 
 RSpec.describe Admin::CategoriesController, type: :controller do
-  let(:valid_params) {FactoryBot.attributes_for :category, description: "blabla"}
+  let(:valid_params) {FactoryBot.attributes_for :category, description: "description"}
   let(:invalid_params) {FactoryBot.attributes_for :category, name: nil}
   let!(:category) {FactoryBot.create :category}
   let!(:user) {FactoryBot.create :user, role: :admin}

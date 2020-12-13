@@ -1,8 +1,6 @@
 require "rails_helper"
 
 RSpec.describe Admin::UserCoursesController, type: :controller do
-  let(:valid_params) {FactoryBot.attributes_for :user_course, description: "blabla"}
-  let(:invalid_params) {FactoryBot.attributes_for :user_course, status: nil}
   let!(:user) {FactoryBot.create :user, role: :admin}
   let!(:normal_user) {FactoryBot.create :user, email: "example@email.com"}
   let!(:course) {FactoryBot.create :course}
@@ -13,6 +11,7 @@ RSpec.describe Admin::UserCoursesController, type: :controller do
   describe "PATCH #update" do
     context "when valid params" do
       before {patch :update,
+              xhr: true,
               params: {id: user_course.id,
                        user_course: {status: "finish"}},
               session: {back_path: admin_user_courses_path}}
@@ -23,10 +22,12 @@ RSpec.describe Admin::UserCoursesController, type: :controller do
     end
 
     context "when invalid params" do
-      before { patch :update, params: {id: user_course.id, user_course: invalid_params} }
+      before {patch :update,
+              xhr: true,
+              params: {id: user_course.id, user_course:{status: nil}}}
 
-      it "should a invalid user_course" do
-        expect(assigns(:user_course).invalid?).to eq true
+      it "should incorrect status" do
+        expect(flash[:danger]).to eq I18n.t("message.user_course.update_fail")
       end
     end
   end

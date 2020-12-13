@@ -26,4 +26,8 @@ status:
   pending: "pending"
 relationship:
   student: "student"
+  active: "active"
+  pending: "pending"
+limit_newest_cate: 7
+limit_course_suggest: 7
 default_id: 1
