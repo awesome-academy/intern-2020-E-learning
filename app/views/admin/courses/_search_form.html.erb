@@ -1,32 +1,40 @@
-<%= form_tag admin_courses_path, method: :get, remote: true do %>
+<%= search_form_for [:admin, @q], remote: true do |f| %>
   <div class="row">
     <div class="col-3 form-group">
-      <%= label_tag :name, t("field.name") %>
-      <%= text_field_tag :name, params[:name], class: "form-control", placeholder: t("placeholder.name") %>
+      <%= f.label :name, t("field.name") %>
+      <%= f.search_field :name_cont,
+          class: "form-control",
+          placeholder: t("placeholder.name") %>
     </div>
     <div class="col-3 form-group">
-      <%= label_tag :description, t("field.description") %>
-      <%= text_field_tag :description, params[:description], class: "form-control", placeholder: t("placeholder.description") %>
+      <%= f.label :description, t("field.description") %>
+      <%= f.search_field :description_cont,
+          class: "form-control",
+          placeholder: t("placeholder.description") %>
     </div>
     <div class="col-3 form-group">
-      <%= label_tag :start_date, t("field.start_date") %>
-      <%= date_field_tag :start_date, params[:start_date], class: "form-control" %>
+      <%= f.label :start_date, t("field.start_date") %>
+      <%= f.date_field :created_at_gteq,
+          class: "form-control input-sm",
+          datepicker: true %>
     </div>
     <div class="col-3 form-group">
-      <%= label_tag :end_date, t("field.end_date") %>
-      <%= date_field_tag :end_date, params[:end_date], class: "form-control" %>
+      <%= f.label :end_date, t("field.end_date") %>
+      <%= f.date_field :created_at_lteq,
+          class: "form-control input-sm",
+          datepicker: true %>
     </div>
     <div class="col-3 form-group">
-      <%= label_tag :status, t("field.status") %>
-      <%= select_tag :status,
-          options_from_collection_for_select(Course.statuses.keys, :to_s, :to_s, params[:status]),
+      <%= f.label :status, t("field.status") %>
+      <%= f.select :status,
+          options_from_collection_for_select(Course.statuses.keys, :to_s, :to_s, @q.status),
           include_blank: t("common.choose_role"),
           class: "form-control" %>
     </div>
   </div>
   <div class="row">
     <div class="col justify-content-end">
-      <%= submit_tag t("button.search"), class: "btn btn-success" %>
+      <%= f.submit t("button.search"), class: "btn btn-success" %>
       <%= link_to t("button.reset"), admin_courses_path, remote: true, class: "btn btn-primary" %>
     </div>
   </div>

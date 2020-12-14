@@ -1,11 +1,11 @@
 class Admin::UsersController < Admin::BaseController
-  before_action :get_users, only: :index
   before_action :get_user, only: %i(edit update)
 
   load_and_authorize_resource
 
   def index
-    @users = @users.page(params[:page]).per Settings.per
+    @q = User.includes(:user_detail).ransack params[:q]
+    @users = @q.result.page(params[:page]).per Settings.per
   end
 
   def edit
@@ -34,14 +34,5 @@ class Admin::UsersController < Admin::BaseController
 
     flash.now[:danger] = t "message.user.not_found"
     redirect_to users_url
-  end
-
-  def get_users
-    @users = User.includes(:user_detail)
-                 .by_email(params[:email])
-                 .by_name(params[:name])
-                 .by_role(params[:role])
-                 .by_location(params[:location])
-                 .by_birthday(params[:start_date], params[:end_date])
   end
 end

@@ -21,4 +21,14 @@ class Category < ApplicationRecord
   scope :by_description, (lambda do |description|
     where "description LIKE ?", "%#{description}%" if description.present?
   end)
+
+  class << self
+    def ransackable_scopes auth_object
+      if auth_object.eql? :admin
+        %i(by_name by_description)
+      else
+        %i(by_name)
+      end
+    end
+  end
 end

@@ -1,10 +1,15 @@
 class Admin::CategoriesController < Admin::BaseController
-  before_action :get_categories, only: :index
   before_action :get_category, only: %i(edit update destroy)
 
   load_and_authorize_resource
 
-  def index; end
+  def index
+    @q = Category.ransack params[:q], auth_object: set_ransackable_auth_object
+    @categories = @q.result
+                    .order_by_created_at
+                    .page(params[:page])
+                    .per Settings.per
+  end
 
   def new
     @category = Category.new
@@ -49,14 +54,6 @@ class Admin::CategoriesController < Admin::BaseController
 
   def category_params
     params.require(:category).permit Category::CATEGORY_PARAMS
-  end
-
-  def get_categories
-    @categories = Category.by_name(params[:name])
-                          .by_description(params[:description])
-                          .order_by_created_at
-                          .page(params[:page])
-                          .per Settings.per
   end
 
   def get_category

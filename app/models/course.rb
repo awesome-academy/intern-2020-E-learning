@@ -56,4 +56,28 @@ class Course < ApplicationRecord
   scope :order_by_status, (lambda do |option|
     order status: option if option.present?
   end)
+
+  ransack_alias :course_info, :name_or_description
+
+  ransacker :created_at do
+    Arel.sql "date(created_at)"
+  end
+
+  class << self
+    def ransackable_attributes auth_object = nil
+      if auth_object.eql? :admin
+        super
+      else
+        super & %w(name description status)
+      end
+    end
+
+    def ransortable_attributes auth_object = nil
+      if auth_object.eql? :admin
+        super
+      else
+        super & %w(name created_at)
+      end
+    end
+  end
 end

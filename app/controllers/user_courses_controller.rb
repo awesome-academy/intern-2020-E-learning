@@ -3,16 +3,17 @@ class UserCoursesController < ApplicationController
                 :create_student_course_params,
                 only: %i(create new)
   before_action :get_course_and_course_lectures, only: :new
-  before_action :get_courses, only: :index
   before_action :get_user_course,
                 :user_course_params,
                 :get_users_and_courses,
                 only: :update
 
   def index
-    @courses = Course.active
-                     .page(params[:page])
-                     .per Settings.user_course_per
+    @q = Course.ransack params[:q], auth_object: set_ransackable_auth_object
+    @courses = @q.result
+                 .active
+                 .page(params[:page])
+                 .per Settings.user_course_per
   end
 
   def new
