@@ -21,4 +21,9 @@ description:
 favicon_logo: "logo2.png"
 trophy_img: "trophy.png"
 status:
-  active: 1
+  active: "active"
+  finish: "finish"
+  pending: "pending"
+relationship:
+  student: "student"
+default_id: 1

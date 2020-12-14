@@ -111,6 +111,9 @@ vi:
     enroll:
       success: "Tham gia khóa học thành công"
       fail: "Tham gia khóa học thất bại"
+    user_course:
+      update_success: "Updated"
+      update_fail: "Update fail"
   field:
     number: "Số"
     video_link: "Link video"
@@ -150,3 +153,13 @@ vi:
     not_allow: "Cấm"
     pending: "Chờ"
     finish: "Hoàn thành"
+  mail:
+    status_change: "Trạng thái của bạn đã được chuyển thành"
+    dear: "Chào "
+    status_change_title: ! "[%{course_name}] Trạng thái của bạn đã được thay đổi"
+    from: "Thân mến"
+    admin_team: "Admin Team"
+    message:
+      learning: "Bạn có thể bắt đầu học từ bây giờ. Chúc may mắn"
+      finish: "Chúc mừng! Admin đã xác nhận bạn đủ diều kiện hoàn thành khóa học"
+      not_allowed: "Rất tiếc, bạn không được phép học (tiếp) khóa học này"

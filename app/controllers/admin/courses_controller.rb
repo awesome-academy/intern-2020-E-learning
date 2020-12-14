@@ -30,7 +30,8 @@ class Admin::CoursesController < Admin::BaseController
   def edit
     @lectures = @course.course_lecture.order_by_number
     @users = @course.users
-                    .includes(:user_detail)
+                    .includes(:user_detail, :user_courses)
+                    .by_course_id(@course.id)
                     .page(params[:page]).per Settings.per
   end
 

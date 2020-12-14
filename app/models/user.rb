@@ -67,6 +67,10 @@ class User < ApplicationRecord
     where "user_details.birthday BETWEEN ? AND ?", start_date, end_date
   end)
 
+  scope :by_course_id, (lambda do |course_id|
+    where user_courses: {course_id: course_id} if course_id.present?
+  end)
+
   ransacker :birthday do
     Arel.sql "date(user_details.birthday)"
   end

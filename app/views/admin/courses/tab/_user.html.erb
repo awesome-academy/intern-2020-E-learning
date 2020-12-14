@@ -1,31 +1,30 @@
+<% first_user_course = user.user_courses&.first %>
 <tr>
   <td><%= page_index params[:page], user_counter, Settings.per %></td>
   <td><%= user.name %></td>
   <td><%= user.email %></td>
   <td><%= user.birthday&.strftime Settings.date_format %></td>
   <td><%= user.location %></td>
-  <td><%= user_course(user, @course).status %></td>
-  <td><%= @course.course_lecture.length %></td>
   <td>
-    <% unless user_course(user, @course).finish? %>
-      <% if user_course(user, @course).learning? %>
+    <% unless first_user_course.finish? %>
+      <% if user.user_courses&.first.learning? %>
         <%= link_to t("common.finish"),
-            admin_user_course_path(id: user_course(user, @course), user_course: {status: "finish"}),
+            admin_user_course_path(id: first_user_course, user_course: {status: "finish"}),
             method: :patch,
             remote: true,
             data: {confirm: t("message.confirm_user")},
             class: "btn btn-success" %>
       <% else %>
         <%= link_to t("common.confirm"),
-          admin_user_course_path(id: user_course(user, @course), user_course: {status: "learning"}),
+          admin_user_course_path(id: first_user_course, user_course: {status: "learning"}),
           method: :patch,
           remote: true,
           data: {confirm: t("message.confirm_user")},
           class: "btn btn-primary" %>
       <% end %>
-      <% unless user_course(user, @course).not_allowed? %>
+      <% unless first_user_course.not_allowed? %>
         <%= link_to t("common.reject"),
-          admin_user_course_path(id: user_course(user, @course), user_course: {status: "not_allowed"}),
+          admin_user_course_path(id: first_user_course, user_course: {status: "not_allowed"}),
           method: :patch,
           remote: true,
           data: {confirm: t("message.confirm_user")},

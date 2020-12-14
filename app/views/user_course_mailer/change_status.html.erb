@@ -1,0 +1,22 @@
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <p><%= t "mail.dear" %><%= @user_course.user.name %>,</p>
+    <br>
+    <p>
+      <%= t "mail.status_change" %> <%= @user_course.status %>
+    </p>
+    <p>
+      <%= t "mail.message.#{@user_course.status}" %>
+    </p>
+    <br>
+    <p>
+      <%= t "mail.from" %>
+    </p>
+    <p>
+      <%= t "mail.admin_team" %>
+    </p>
+  </body>
+</html>

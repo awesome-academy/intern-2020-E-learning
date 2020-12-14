@@ -116,6 +116,9 @@ en:
     enroll:
       success: "Enroll successfully"
       fail: "Enroll failed"
+    user_course:
+      update_success: "Updated"
+      update_fail: "Update fail"
   field:
     number: "Number"
     video_link: "Video link"
@@ -156,3 +159,13 @@ en:
     not_allowed: "Denied"
     pending: "Pending"
     finish: "Finish"
+  mail:
+    status_change: "Your status was change to"
+    dear: "Dear "
+    status_change_title: ! "[%{course_name}] Your status was change"
+    from: "Regards"
+    admin_team: "Admin Team"
+    message:
+      learning: "You can start your journey from now! Good luck"
+      finish: "Congratulation! Admin was finish this course for ya"
+      not_allowed: "You have been remove or not allow to learn this course"
