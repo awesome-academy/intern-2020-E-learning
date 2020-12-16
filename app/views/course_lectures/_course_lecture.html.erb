@@ -4,10 +4,13 @@
         <p class="mb-1">
           <%= course_lecture_counter + 1 %>.
           <%= link_to course_lecture.name,
-            course_lecture_path(number: course_lecture.number,
-                                id: course_lecture.id,
-                                course_id: course_lecture.course_id) %>
+              course_lecture_path(number: course_lecture.number,
+                                  id: course_lecture.id,
+                                  course_id: course_lecture.course_id) %>
         </p>
+        <% if learned_lecture? course_lecture %>
+          <span class="badge badge-success"><%= t "status.learned" %></span>
+        <% end %>
       </div>
   </div>
 </li>

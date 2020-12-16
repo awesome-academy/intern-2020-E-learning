@@ -1,0 +1,6 @@
+<% if @courses.present? %>
+  $("#courses").html("<%= j render collection: @courses, partial: "user_courses/course" %>");
+<% else %>
+  $("#courses").html("<p><%= j t("common.no_course_found") %></p>");
+<% end %>
+$("#courses-paginate").html("<%= j paginate @courses, remote: true, theme: "twitter-bootstrap-3" %>");

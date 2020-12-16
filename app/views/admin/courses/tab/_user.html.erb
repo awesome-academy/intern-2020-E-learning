@@ -5,22 +5,32 @@
   <td><%= user.birthday&.strftime Settings.date_format %></td>
   <td><%= user.location %></td>
   <td><%= user_course(user, @course).status %></td>
+  <td><%= @course.course_lecture.length %></td>
   <td>
-    <% unless user_course(user, @course).learning? %>
-      <%= link_to t("common.confirm"),
-        user_course_path(id: user_course(user, @course), user_course: {status: "learning"}),
-        method: :patch,
-        remote: true,
-        data: {confirm: t("message.confirm_user")},
-        class: "btn btn-primary" %>
-    <% end %>
-    <% unless user_course(user, @course).not_allowed? %>
-      <%= link_to t("common.reject"),
-        user_course_path(id: user_course(user, @course), user_course: {status: "not_allowed"}),
-        method: :patch,
-        remote: true,
-        data: {confirm: t("message.confirm_user")},
-        class: "btn btn-danger" %>
+    <% unless user_course(user, @course).finish? %>
+      <% if user_course(user, @course).learning? %>
+        <%= link_to t("common.finish"),
+            admin_user_course_path(id: user_course(user, @course), user_course: {status: "finish"}),
+            method: :patch,
+            remote: true,
+            data: {confirm: t("message.confirm_user")},
+            class: "btn btn-success" %>
+      <% else %>
+        <%= link_to t("common.confirm"),
+          admin_user_course_path(id: user_course(user, @course), user_course: {status: "learning"}),
+          method: :patch,
+          remote: true,
+          data: {confirm: t("message.confirm_user")},
+          class: "btn btn-primary" %>
+      <% end %>
+      <% unless user_course(user, @course).not_allowed? %>
+        <%= link_to t("common.reject"),
+          admin_user_course_path(id: user_course(user, @course), user_course: {status: "not_allowed"}),
+          method: :patch,
+          remote: true,
+          data: {confirm: t("message.confirm_user")},
+          class: "btn btn-danger" %>
+      <% end %>
     <% end %>
   </td>
 </tr>

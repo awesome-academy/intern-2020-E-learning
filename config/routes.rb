@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     resources :user_courses
     resources :course_lectures
     resources :complete_courses
+    resources :my_courses
 
     namespace :admin do
       root "dashboard#index"
@@ -22,6 +23,7 @@ Rails.application.routes.draw do
       resources :courses
       resources :users
       resources :categories
+      resources :user_courses
     end
   end
 end
