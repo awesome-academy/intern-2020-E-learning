@@ -1,0 +1,3 @@
+$("#comments").append("<%= j render partial: "comments/comment", locals: {comment: @comment} %>");
+$("#content").val("");
+$("#total-comments").html((parseInt($("#total-comments").html()) + 1).toString())

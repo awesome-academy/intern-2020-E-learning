@@ -31,3 +31,5 @@ relationship:
 limit_newest_cate: 7
 limit_course_suggest: 7
 default_id: 1
+number:
+  two: 2

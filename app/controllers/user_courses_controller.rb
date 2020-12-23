@@ -16,6 +16,7 @@ class UserCoursesController < ApplicationController
     @course = Course.find params[:course_id]
     @user_course = current_user.user_courses
                                .find_by course_id: params[:course_id]
+    create_comment_and_get_comments @course
     return unless @user_course&.learning?
 
     flash[:success] = t "message.course.welcome_back"

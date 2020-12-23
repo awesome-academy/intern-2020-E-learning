@@ -4,6 +4,7 @@ class CourseLecture < ApplicationRecord
 
   belongs_to :course
   has_many :user_lectures, dependent: :destroy
+  has_many :comments, as: :commentable, dependent: :destroy
 
   validates :name, :video_link, presence: true
   validates :number, presence: true,
