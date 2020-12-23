@@ -24,6 +24,7 @@ gem "cancancan"
 gem "ransack"
 gem "omniauth"
 gem "omniauth-facebook"
+gem "sidekiq"
 gem "bootsnap", ">= 1.4.2", require: false
 
 group :development, :test do
@@ -51,6 +52,7 @@ group :test do
   gem "shoulda-matchers"
   gem "simplecov", require: false
   gem "simplecov-rcov"
+  gem "rspec-sidekiq"
 end
 
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]

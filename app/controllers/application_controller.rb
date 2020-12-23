@@ -25,7 +25,7 @@ class ApplicationController < ActionController::Base
     return if user_signed_in?
 
     flash[:danger] = t "message.user.require_login"
-    redirect_to login_url
+    redirect_to new_user_session_path
   end
 
   def after_sign_in_path_for resource
