@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_08_150236) do
+ActiveRecord::Schema.define(version: 2020_12_28_085814) do
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -54,6 +54,8 @@ ActiveRecord::Schema.define(version: 2020_12_08_150236) do
     t.date "estimate_time"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "user_courses_count"
+    t.integer "course_lectures_count"
   end
 
   create_table "instructor_courses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -61,18 +63,6 @@ ActiveRecord::Schema.define(version: 2020_12_08_150236) do
     t.bigint "user_id", null: false
     t.index ["course_id"], name: "index_instructor_courses_on_course_id"
     t.index ["user_id"], name: "index_instructor_courses_on_user_id"
-  end
-
-  create_table "models", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
-    t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["email"], name: "index_models_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_models_on_reset_password_token", unique: true
   end
 
   create_table "user_courses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -120,14 +110,15 @@ ActiveRecord::Schema.define(version: 2020_12_08_150236) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer "failed_attempts", default: 0, null: false
-    t.datetime "locked_at"
     t.string "provider"
     t.string "uid"
+    t.integer "failed_attempts", default: 0, null: false
+    t.datetime "locked_at"
     t.string "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string "unconfirmed_email"
+    t.json "avatars"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
