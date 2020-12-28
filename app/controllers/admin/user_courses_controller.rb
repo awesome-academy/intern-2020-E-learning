@@ -1,6 +1,5 @@
 class Admin::UserCoursesController < Admin::BaseController
   def update
-    byebug
     user_course = UserCourse.find params[:id]
     @users = user_course.course.users
     if user_course.update user_course_params
