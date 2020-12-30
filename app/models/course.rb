@@ -10,7 +10,7 @@ class Course < ApplicationRecord
   has_many :instructor_courses, dependent: :destroy
   has_many :course_lecture, dependent: :destroy, inverse_of: :course
   has_many :course_categories, dependent: :destroy
-  has_many :comments, dependent: :destroy
+  has_many :comments, as: :commentable, dependent: :destroy
   has_many :users, through: :user_courses, dependent: :destroy
   has_many :categories, through: :course_categories, dependent: :destroy
 

@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row">
+    <div class="panel panel-default widget list-group-full-width">
+      <div class="panel-heading">
+          <span class="glyphicon glyphicon-comment"></span>
+          <h3 class="panel-title"><%= t "common.comments" %></h3>
+
+          <span class="label label-info">
+            <%= t "common.total" %>
+            <span id="total-comments">
+              <%= @comments.length %>
+            </span>
+          </span>
+      </div>
+      <div class="panel-body">
+        <ul id="comments" class="list-group">
+          <%= render @comments %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

@@ -49,6 +49,10 @@ en:
     require_current_password: "(we need your current password to confirm your changes)"
     unhappy: "Unhappy?"
     my_courses: "My courses"
+    by: "By: "
+    total: "Total: "
+    comments: "Comments"
+    new_comment: "New comment"
   user:
     comments: "Comment"
     comments_welcome: "What did student say about their courses"
@@ -75,6 +79,7 @@ en:
     more_courses: "More courses"
     search: "Search"
     reset: "Reset"
+    add_comment: "Add comment"
   message:
     sign_up_now: "Do you have an account? Sign up now !"
     confirm_delete: "Are you sure you want to delete the item?"

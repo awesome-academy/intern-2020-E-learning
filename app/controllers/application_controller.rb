@@ -40,6 +40,12 @@ class ApplicationController < ActionController::Base
     current_user&.admin? ? :admin : nil
   end
 
+  def create_comment_and_get_comments commentable
+    @commentable = commentable
+    @comments = @commentable.comments
+    @comment = Comment.new
+  end
+
   private
 
   def rescue_404_exception

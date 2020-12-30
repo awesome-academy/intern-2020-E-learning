@@ -1,0 +1,17 @@
+<li class="list-group-item">
+  <div class="comment-text">
+    <div>
+      <div>
+        <span class="mic-info"><%= t "common.by" %></span>
+        <span><%= comment.user.email %></span>
+      </div>
+      <div class="comment-text">
+        <%= comment.content %>
+      </div>
+      <div class="mic-info">
+        <p><%= comment.created_at.strftime Settings.date_format %></p>
+      </div>
+      <br>
+    </div>
+  </div>
+</li>

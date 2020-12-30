@@ -13,6 +13,7 @@ class CourseLecturesController < ApplicationController
   def show
     @course_lecture = @course.course_lecture
                              .find_by number: params[:number]
+    create_comment_and_get_comments @course_lecture
     create_user_lecture_params
     current_user.user_lectures.find_or_create_by user_lecture_params
     redirect_to course_lectures_path unless @course_lecture

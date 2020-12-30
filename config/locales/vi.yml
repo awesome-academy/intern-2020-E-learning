@@ -43,6 +43,10 @@ vi:
     wait_admin_confirm: "Vui lòng chờ admin xác nhận"
     pending: "Chờ ..."
     my_courses: "Khóa học của tôi"
+    by: "Tạo bởi: "
+    total: "Tổng: "
+    comments: "Bình luận"
+    new_comment: "Bình luận mới"
   user:
     comments: "Bình luận"
     comments_welcome: "Học viên cũ nói gì về khóa học của họ"
@@ -75,6 +79,7 @@ vi:
     reset: "Reset"
     search: "Tìm kiếm"
     reset: "Đặt lại"
+    add_comment: "Thêm comment"
   message:
     sign_up_now: "Bạn chưa có tài khoản? Đăng kí ngay !"
     confirm_delete: "Bạn có chắc muốn xóa bản ghi?"
