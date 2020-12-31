@@ -6,7 +6,9 @@ class User < ApplicationRecord
                  :email,
                  :password,
                  :password_confirmation,
-                 :role_id,
+                 :role,
+                 {avatars: []},
+                 :remove_avatars,
                  user_detail_attributes: UserDetail::USER_DETAIL_PARAMS].freeze
 
   enum role: {admin: 0, user: 1, instructor: 2}
@@ -19,6 +21,8 @@ class User < ApplicationRecord
   has_many :courses, through: :user_courses, dependent: :destroy
 
   accepts_nested_attributes_for :user_detail, allow_destroy: true
+
+  mount_uploaders :avatars, AvatarUploader
 
   delegate :name,
            :birthday,

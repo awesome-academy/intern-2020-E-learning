@@ -25,6 +25,8 @@ gem "ransack"
 gem "omniauth"
 gem "omniauth-facebook"
 gem "sidekiq"
+gem "carrierwave"
+gem "rmagick"
 gem "bootsnap", ">= 1.4.2", require: false
 
 group :development, :test do
