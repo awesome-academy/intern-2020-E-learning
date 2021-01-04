@@ -1,0 +1,2 @@
+$("#courses").html("<%= j render collection: @courses, partial: "admin/student_managements/course" %>");
+$("#courses-paginate").html("<%= j paginate(@courses, remote: true, theme: "twitter-bootstrap-3") %>");

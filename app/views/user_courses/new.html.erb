@@ -1,5 +1,5 @@
 <% provide :title, @course.name %>
-
+<% first_user_course = @course.first_user_course %>
 <div class="background-color">
   <div class="container">
     <div>
@@ -9,13 +9,13 @@
 
       <div class="inline-item">
         <h2><%= @course.name %></h2>
-        <% if current_user && @course.user_courses&.first.pending? %>
+        <% if first_user_course&.pending? %>
           <p><%= t "common.pending" %></p>
           <p><%= t "common.wait_admin_confirm" %></p>
-        <% elsif current_user && @course.user_courses&.first.not_allowed? %>
+        <% elsif first_user_course&.not_allowed? %>
           <p><%= t "common.not_allowed" %></p>
           <p><%= t "common.contact_admin_to_enroll" %></p>
-        <% elsif current_user && @course.user_courses&.first.finish? %>
+        <% elsif first_user_course&.finish? %>
           <p><%= t "common.completed" %></p>
           <p><%= t "common.still_see_materials" %>
             <%= link_to t("common.materials"),

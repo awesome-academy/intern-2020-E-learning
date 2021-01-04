@@ -24,6 +24,8 @@ status:
   active: "active"
   finish: "finish"
   pending: "pending"
+  learning: "learning"
+  not_allowed: "not_allowed"
 relationship:
   student: "student"
   active: "active"

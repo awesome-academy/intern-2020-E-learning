@@ -2,7 +2,7 @@ class UserCourse < ApplicationRecord
   USER_COURSE_PARAMS = %i(course_id user_id status relationship).freeze
 
   belongs_to :user
-  belongs_to :course
+  belongs_to :course, counter_cache: true
   enum status: {learning: 0, pending: 1, finish: 2, not_allowed: 3}
   enum relationship: {student: 0, instructor: 1}
 
@@ -16,5 +16,9 @@ class UserCourse < ApplicationRecord
 
   scope :by_user_id, (lambda do |user_id|
     where user_id: user_id if user_id.present?
+  end)
+
+  scope :by_course_id, (lambda do |course_id|
+    where course_id: course_id if course_id.present?
   end)
 end

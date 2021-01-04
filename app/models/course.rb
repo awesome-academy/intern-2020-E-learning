@@ -58,7 +58,7 @@ class Course < ApplicationRecord
   end)
 
   scope :by_ids, (lambda do |ids|
-    where id: ids if ids.present?
+    where id: ids if ids
   end)
 
   scope :by_user_id, (lambda do |user_id|
@@ -73,6 +73,10 @@ class Course < ApplicationRecord
 
   ransacker :created_at do
     Arel.sql "date(created_at)"
+  end
+
+  def first_user_course
+    user_courses.first
   end
 
   class << self

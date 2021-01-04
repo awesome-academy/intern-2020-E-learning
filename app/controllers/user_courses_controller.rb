@@ -27,7 +27,7 @@ class UserCoursesController < ApplicationController
     user_course = UserCourse.new user_course_params
     if user_course.save
       flash[:warning] = t "message.enroll.wait"
-      redirect_to user_courses_path
+      redirect_to my_courses_path(status: Settings.status.pending)
     else
       flash.now[:danger] = t "message.enroll.fail"
       redirect_to new_user_course_path(course_id: params[:course_id])

@@ -1,13 +1,14 @@
-<% first_user_course = user.user_courses&.first %>
+<% first_user_course = user.first_user_course %>
 <tr>
   <td><%= page_index params[:page], user_counter, Settings.per %></td>
   <td><%= user.name %></td>
   <td><%= user.email %></td>
   <td><%= user.birthday&.strftime Settings.date_format %></td>
   <td><%= user.location %></td>
+  <td><%= first_user_course.status %></td>
   <td>
     <% unless first_user_course.finish? %>
-      <% if user.user_courses&.first.learning? %>
+      <% if first_user_course.learning? %>
         <%= link_to t("common.finish"),
             admin_user_course_path(id: first_user_course, user_course: {status: "finish"}),
             method: :patch,

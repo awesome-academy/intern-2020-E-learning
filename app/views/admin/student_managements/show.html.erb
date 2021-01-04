@@ -1,0 +1,10 @@
+<% provide :title, @course.name %>
+
+<div class="container">
+  <h1><%= t "common.students" %></h1>
+  <p><%= t "common.course" %><%= @course.name %></p>
+  <span><%= t "common.num_of_student" %><%= @users.length %></span>
+  <div>
+    <%= render "student_table" %>
+  </div>
+</div>
