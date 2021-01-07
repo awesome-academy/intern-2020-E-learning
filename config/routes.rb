@@ -11,11 +11,11 @@ Rails.application.routes.draw do
     get "/course/list", to: "user_courses#index"
 
     resources :users
-    resources :courses
+    resources :user_courses
     resources :course_lectures do
       resources :comments
     end
-    resources :user_courses do
+    resources :courses do
       resources :comments
     end
     resources :complete_courses

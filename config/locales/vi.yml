@@ -54,6 +54,7 @@ vi:
     confirm: "Đồng ý"
     finish: "Hoàn thành"
     reject: "Từ chối"
+    categories: "Chủ đề"
   user:
     comments: "Bình luận"
     comments_welcome: "Học viên cũ nói gì về khóa học của họ"
