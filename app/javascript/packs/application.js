@@ -17,7 +17,8 @@ require('chosen-js')
 
 toastr.options = {
   'preventDuplicates': true,
-  'preventOpenDuplicates': true
+  'preventOpenDuplicates': true,
+  'closeButton': true
 }
 
 global.toastr = toastr;

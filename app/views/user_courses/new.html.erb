@@ -9,13 +9,13 @@
 
       <div class="inline-item">
         <h2><%= @course.name %></h2>
-        <% if first_user_course&.pending? %>
+        <% if @user_course&.pending? %>
           <p><%= t "common.pending" %></p>
           <p><%= t "common.wait_admin_confirm" %></p>
-        <% elsif first_user_course&.not_allowed? %>
+        <% elsif @user_course&.not_allowed? %>
           <p><%= t "common.not_allowed" %></p>
           <p><%= t "common.contact_admin_to_enroll" %></p>
-        <% elsif first_user_course&.finish? %>
+        <% elsif @user_course&.finish? %>
           <p><%= t "common.completed" %></p>
           <p><%= t "common.still_see_materials" %>
             <%= link_to t("common.materials"),
@@ -35,8 +35,13 @@
     </div>
     <div>
       <h3><%= t "common.lectures" %></h3>
-      <%= render collection: @course_lectures,
-          partial: "user_courses/course_lecture" %>
+      <% if @user_course&.finish? %>
+        <%= render collection: @course_lectures,
+            partial: "course_lectures/course_lecture" %>
+      <% else %>
+        <%= render collection: @course_lectures,
+            partial: "user_courses/course_lecture" %>
+      <% end %>
     </div>
     <div>
       <%= render "comments/comments" %>

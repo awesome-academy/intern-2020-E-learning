@@ -54,6 +54,13 @@ vi:
     confirm: "Đồng ý"
     finish: "Hoàn thành"
     reject: "Từ chối"
+    all: "Tất cả"
+    choose_role: "Chọn vai trò"
+    not_allowed: "Không được phép"
+    contact_admin_to_enroll: "Liên hệ admin để vào khóa học"
+    completed: "Đã hoàn thành"
+    still_see_materials: "Bạn vẫn có thể xem"
+    lectures: "Bài học"
     categories: "Chủ đề"
   user:
     comments: "Bình luận"
