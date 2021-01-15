@@ -12,7 +12,7 @@ logo_image: "logo2.png"
 carosel_image: "elearning-way-improve-employee-engagement.jpg"
 per: 5
 default_start_date: "01/01/1900"
-date_format: "%Y/%m/%d"
+date_format: "%d/%m/%Y"
 user_course_per: 10
 default_page: 1
 min_age: 12
