@@ -3,6 +3,10 @@ module API
     class Users < Grape::API
       include API::V1::Defaults
 
+      before do
+        authenticate_user!
+      end
+
       resource :users do
         desc "Return all users"
         get ":page/:per", root: :users do

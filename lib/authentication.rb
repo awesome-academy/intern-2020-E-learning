@@ -5,11 +5,11 @@ class Authentication
 
   class << self
     def encode payload
-      JWT.encode(payload, ENV["AUTH_SECRET"], ALGORITHM)
+      JWT.encode(payload, ENV["auth_secret"], ALGORITHM)
     end
 
     def decode token
-      JWT.decode(token, ENV["AUTH_SECRET"], true, algorithm: ALGORITHM).first
+      JWT.decode(token, ENV["auth_secret"], true, algorithm: ALGORITHM).first
     end
   end
 end

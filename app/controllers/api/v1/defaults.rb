@@ -6,23 +6,28 @@ module API
       included do
         prefix "api"
         version "v1", using: :path
-        default_format :json
         format :json
-        formatter :json, Grape::Formatter::ActiveModelSerializers
-        error_formatter :json, Grape::Formatter::ActiveModelSerializers
 
-        helpers do
-          def logger
-            Rails.logger
-          end
-        end
+        helpers API::Helpers::AuthenticateHelpers
 
         rescue_from ActiveRecord::RecordNotFound do |e|
           error_response(message: e.message, status: 404)
         end
 
-        rescue_from ActiveRecord::RecordInvalid do |e|
-          error_response(message: e.message, status: 422)
+        rescue_from :all do |e|
+          raise e if Rails.env.development?
+
+          error_response(message: e.message, status: 500)
+        end
+
+        helpers do
+          def api_error! message, error_code, status, header
+            error!({message: message, code: error_code}, status, header)
+          end
+
+          def response_success data
+            {status: :success, data: data.as_json}
+          end
         end
       end
     end
