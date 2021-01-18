@@ -26,6 +26,10 @@ gem "omniauth"
 gem "omniauth-facebook"
 gem "sidekiq"
 gem "chosen-rails"
+gem "grape"
+gem "grape-active_model_serializers"
+gem "jwt"
+gem "grape_on_rails_routes"
 gem "bootsnap", ">= 1.4.2", require: false
 
 group :development, :test do
