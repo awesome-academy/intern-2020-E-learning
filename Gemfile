@@ -30,11 +30,13 @@ gem "grape"
 gem "grape-active_model_serializers"
 gem "jwt"
 gem "grape_on_rails_routes"
+gem "grape-swagger"
+gem "grape-swagger-rails"
 gem "bootsnap", ">= 1.4.2", require: false
 
 group :development, :test do
   gem "rails-controller-testing"
-  gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
+  gem "pry-rails"
   gem "rubocop", "~> 0.74.0", require: false
   gem "rubocop-checkstyle_formatter", require: false
   gem "rubocop-rails", "~> 2.3.2", require: false

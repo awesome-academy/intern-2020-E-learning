@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   mount API::Base, at: "/"
+  mount GrapeSwaggerRails::Engine, at: "/documentation"
 
   devise_for :users, controllers: {omniauth_callbacks: "users/omniauth_callbacks"}
 
